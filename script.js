@@ -44,10 +44,10 @@ document.addEventListener('DOMContentLoaded', function() {
             title: "Interstate Car Transport Services",
             description: "We offer interstate car transport services for those looking to move their vehicles from Delhi to any other state in India. Our team ensures compliance with inter-state transport regulations and provides insurance coverage for added protection."
         },
-        {
-            title: "Domestic Car Transport Services",
-            description: "Our domestic car transport services cover both local and long-distance moves, ensuring secure transportation anywhere in the country. Whether it’s a short-distance relocation within Delhi or a cross-country move, we provide tailored solutions to suit your needs."
-        },
+        // {
+        //     title: "Domestic Car Transport Services",
+        //     description: "Our domestic car transport services cover both local and long-distance moves, ensuring secure transportation anywhere in the country. Whether it’s a short-distance relocation within Delhi or a cross-country move, we provide tailored solutions to suit your needs."
+        // },
     ];
 
     // Dynamically populate services
@@ -253,3 +253,281 @@ $(document).ready(function() {
       });
     });
   })
+
+
+  // Footer JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    // Smooth scrolling for footer links
+    const footerLinks = document.querySelectorAll('.footer a[href^="#"]');
+    
+    footerLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // Mobile footer accordion for smaller screens
+    if (window.innerWidth < 768) {
+        const footerHeadings = document.querySelectorAll('.footer-column h3');
+        
+        footerHeadings.forEach(heading => {
+            heading.addEventListener('click', function() {
+                const column = this.parentElement;
+                column.classList.toggle('active');
+                
+                const columnList = column.querySelector('ul');
+                if (column.classList.contains('active')) {
+                    columnList.style.maxHeight = columnList.scrollHeight + 'px';
+                } else {
+                    columnList.style.maxHeight = '0';
+                }
+            });
+            
+            // Initialize all lists as closed
+            const columnList = heading.nextElementSibling;
+            if (columnList && columnList.tagName === 'UL') {
+                columnList.style.maxHeight = '0';
+                columnList.style.overflow = 'hidden';
+                columnList.style.transition = 'max-height 0.3s ease';
+            }
+        });
+    }
+    
+    // Back to top button functionality
+    const backToTopButton = document.createElement('button');
+    backToTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    backToTopButton.className = 'back-to-top';
+    document.body.appendChild(backToTopButton);
+    
+    backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Show/hide back to top button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('show');
+        } else {
+            backToTopButton.classList.remove('show');
+        }
+    });
+    
+    // Add this CSS for the back to top button
+    const style = document.createElement('style');
+    style.textContent = `
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: #e55c00;
+            transform: translateY(-3px);
+        }
+    `;
+    document.head.appendChild(style);
+});
+
+
+
+
+
+
+
+
+// About Us Section JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    // Parallax effect for header background
+    const parallaxBg = document.querySelector('.parallax-bg');
+    if (parallaxBg) {
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.pageYOffset;
+            parallaxBg.style.transform = `scale(1.1) translateY(${scrollPosition * 0.05}px)`;
+        });
+    }
+    
+    // Animate stats counter when in viewport
+    const statCounters = document.querySelectorAll('.stat-counter');
+    const statsSection = document.querySelector('.stats-section');
+    
+    if (statsSection && statCounters.length) {
+        let counted = false;
+        
+        function animateCounters() {
+            if (counted) return;
+            
+            const sectionTop = statsSection.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (sectionTop < windowHeight - 100) {
+                counted = true;
+                
+                statCounters.forEach(counter => {
+                    const target = parseInt(counter.closest('.stat-item').dataset.count);
+                    let count = 0;
+                    const duration = 2000; // 2 seconds
+                    const increment = target / (duration / 16); // 60fps
+                    
+                    const updateCount = () => {
+                        if (count < target) {
+                            count += increment;
+                            counter.textContent = Math.ceil(count);
+                            requestAnimationFrame(updateCount);
+                        } else {
+                            counter.textContent = target;
+                        }
+                    };
+                    
+                    updateCount();
+                });
+            }
+        }
+        
+        window.addEventListener('scroll', animateCounters);
+        animateCounters(); // Check on load
+    }
+    
+    // Timeline animation
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    function animateTimeline() {
+        timelineItems.forEach(item => {
+            const itemTop = item.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (itemTop < windowHeight - 100) {
+                item.classList.add('animate');
+            }
+        });
+    }
+    
+    window.addEventListener('scroll', animateTimeline);
+    animateTimeline(); // Check on load
+    
+    // Testimonial slider
+    const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+    const indicators = document.querySelectorAll('.indicator');
+    const prevButton = document.querySelector('.control-prev');
+    const nextButton = document.querySelector('.control-next');
+    
+    if (testimonialSlides.length && indicators.length) {
+        let currentSlide = 0;
+        
+        function showSlide(index) {
+            testimonialSlides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+            
+            testimonialSlides[index].classList.add('active');
+            indicators[index].classList.add('active');
+            currentSlide = index;
+        }
+        
+        function nextSlide() {
+            let next = currentSlide + 1;
+            if (next >= testimonialSlides.length) next = 0;
+            showSlide(next);
+        }
+        
+        function prevSlide() {
+            let prev = currentSlide - 1;
+            if (prev < 0) prev = testimonialSlides.length - 1;
+            showSlide(prev);
+        }
+        
+        // Auto slide every 5 seconds
+        let slideInterval = setInterval(nextSlide, 5000);
+        
+        // Reset interval on manual navigation
+        function resetInterval() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+        
+        // Event listeners
+        if (nextButton) {
+            nextButton.addEventListener('click', () => {
+                nextSlide();
+                resetInterval();
+            });
+        }
+        
+        if (prevButton) {
+            prevButton.addEventListener('click', () => {
+                prevSlide();
+                resetInterval();
+            });
+        }
+        
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                showSlide(index);
+                resetInterval();
+            });
+        });
+    }
+    
+    // Team card flip on mobile
+    const teamCards = document.querySelectorAll('.team-card');
+    
+    if (window.innerWidth < 768 && teamCards.length) {
+        teamCards.forEach(card => {
+            card.addEventListener('click', function() {
+                this.classList.toggle('flipped');
+                
+                const cardFront = this.querySelector('.card-front');
+                const cardBack = this.querySelector('.card-back');
+                
+                if (this.classList.contains('flipped')) {
+                    cardFront.style.transform = 'rotateY(180deg)';
+                    cardBack.style.transform = 'rotateY(0)';
+                } else {
+                    cardFront.style.transform = 'rotateY(0)';
+                    cardBack.style.transform = 'rotateY(180deg)';
+                }
+            });
+        });
+    }
+    
+    // AOS initialization for animations
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    }
+});
