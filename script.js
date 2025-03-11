@@ -531,3 +531,150 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Service Areas Section JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    // Map pin interaction
+    const mapPins = document.querySelectorAll('.map-pin');
+    const areaRegions = document.querySelectorAll('.area-region');
+    
+    mapPins.forEach(pin => {
+        pin.addEventListener('click', function() {
+            const areaId = this.getAttribute('data-area').toLowerCase().replace(' ', '-');
+            
+            // Hide all regions
+            areaRegions.forEach(region => {
+                region.classList.remove('active');
+            });
+            
+            // Show selected region
+            const selectedRegion = document.getElementById(areaId);
+            if (selectedRegion) {
+                selectedRegion.classList.add('active');
+            } else {
+                // If region not found, show all areas
+                document.getElementById('all-areas').classList.add('active');
+            }
+            
+            // Highlight active pin
+            mapPins.forEach(p => p.classList.remove('active-pin'));
+            this.classList.add('active-pin');
+            
+            // Add animation to the pin
+            this.classList.add('pin-pulse');
+            setTimeout(() => {
+                this.classList.remove('pin-pulse');
+            }, 1000);
+        });
+    });
+    
+    // Add hover effect for map pins
+    mapPins.forEach(pin => {
+        pin.addEventListener('mouseenter', function() {
+            const label = this.querySelector('.pin-label');
+            if (label) {
+                label.style.opacity = '1';
+            }
+        });
+        
+        pin.addEventListener('mouseleave', function() {
+            const label = this.querySelector('.pin-label');
+            if (label) {
+                label.style.opacity = '0';
+            }
+        });
+    });
+    
+    // Add smooth scrolling for area links
+    const areaLinks = document.querySelectorAll('.area-column ul li a');
+    
+    areaLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // You can add custom behavior here, like scrolling to a specific section
+            // or showing more details about the area
+            
+            // For now, just add a visual feedback
+            this.classList.add('clicked');
+            setTimeout(() => {
+                this.classList.remove('clicked');
+            }, 300);
+        });
+    });
+    
+    // Add search functionality (optional)
+    const searchInput = document.createElement('input');
+    searchInput.type = 'text';
+    searchInput.placeholder = 'Search for an area...';
+    searchInput.className = 'area-search';
+    
+    const areasList = document.querySelector('.areas-list');
+    if (areasList) {
+        areasList.insertBefore(searchInput, areasList.firstChild);
+    }
+    
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const allLinks = document.querySelectorAll('.area-column ul li a');
+        
+        allLinks.forEach(link => {
+            const text = link.textContent.toLowerCase();
+            const listItem = link.parentElement;
+            
+            if (text.includes(searchTerm)) {
+                listItem.style.display = 'block';
+            } else {
+                listItem.style.display = 'none';
+            }
+        });
+    });
+    
+    // Add CSS for the search input and animations
+    const style = document.createElement('style');
+    style.textContent = `
+        .area-search {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        
+        .area-search:focus {
+            border-color: #ff6600;
+        }
+        
+        .active-pin i {
+            color: #0d2240;
+        }
+        
+        .pin-pulse {
+            animation: pulse 1s;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.3);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .clicked {
+            background-color: rgba(255, 102, 0, 0.1);
+            color: #ff6600 !important;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Initialize with all areas visible
+    document.getElementById('all-areas').classList.add('active');
+});
