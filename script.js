@@ -678,3 +678,117 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize with all areas visible
     document.getElementById('all-areas').classList.add('active');
 });
+
+
+// FAQ Section JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    // FAQ Toggle Functionality
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+            // Close all other items
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                    const otherAnswer = otherItem.querySelector('.faq-answer');
+                    otherAnswer.style.maxHeight = '0';
+                }
+            });
+            
+            // Toggle current item
+            item.classList.toggle('active');
+            
+            const answer = item.querySelector('.faq-answer');
+            if (item.classList.contains('active')) {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            } else {
+                answer.style.maxHeight = '0';
+            }
+        });
+    });
+    
+    // FAQ Search Functionality
+    const searchInput = document.getElementById('faqSearch');
+    const noResults = document.createElement('div');
+    noResults.className = 'no-results';
+    noResults.innerHTML = '<i class="fas fa-search"></i><p>No matching questions found. Please try a different search term.</p>';
+    
+    const faqContainer = document.querySelector('.faq-container');
+    faqContainer.parentNode.insertBefore(noResults, faqContainer.nextSibling);
+    
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        let matchFound = false;
+        
+        faqItems.forEach(item => {
+            const questionText = item.querySelector('.faq-question h3').textContent.toLowerCase();
+            const answerText = item.querySelector('.faq-answer p').textContent.toLowerCase();
+            
+            // Reset highlights
+            item.querySelector('.faq-question h3').innerHTML = item.querySelector('.faq-question h3').textContent;
+            item.querySelector('.faq-answer p').innerHTML = item.querySelector('.faq-answer p').textContent;
+            
+            if (searchTerm.length > 2 && (questionText.includes(searchTerm) || answerText.includes(searchTerm))) {
+                item.style.display = 'block';
+                matchFound = true;
+                
+                // Highlight matching text
+                if (questionText.includes(searchTerm)) {
+                    const highlightedQuestion = item.querySelector('.faq-question h3').textContent.replace(
+                        new RegExp(searchTerm, 'gi'),
+                        match => `<span class="highlight">${match}</span>`
+                    );
+                    item.querySelector('.faq-question h3').innerHTML = highlightedQuestion;
+                }
+                
+                if (answerText.includes(searchTerm)) {
+                    const highlightedAnswer = item.querySelector('.faq-answer p').textContent.replace(
+                        new RegExp(searchTerm, 'gi'),
+                        match => `<span class="highlight">${match}</span>`
+                    );
+                    item.querySelector('.faq-answer p').innerHTML = highlightedAnswer;
+                    
+                    // Open the item to show the highlighted answer
+                    item.classList.add('active');
+                    item.querySelector('.faq-answer').style.maxHeight = item.querySelector('.faq-answer').scrollHeight + 'px';
+                }
+            } else if (searchTerm.length > 2) {
+                item.style.display = 'none';
+            } else {
+                item.style.display = 'block';
+                matchFound = true;
+            }
+        });
+        
+        // Show/hide no results message
+        if (!matchFound && searchTerm.length > 2) {
+            noResults.style.display = 'block';
+        } else {
+            noResults.style.display = 'none';
+        }
+    });
+    
+    // Open first FAQ by default
+    if (faqItems.length > 0) {
+        setTimeout(() => {
+            faqItems[0].classList.add('active');
+            const firstAnswer = faqItems[0].querySelector('.faq-answer');
+            firstAnswer.style.maxHeight = firstAnswer.scrollHeight + 'px';
+        }, 500);
+    }
+    
+    // Add animation for new FAQs
+    faqItems.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px)';
+        item.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+        
+        setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+        }, 100);
+    });
+});
