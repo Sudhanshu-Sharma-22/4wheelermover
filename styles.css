@@ -2634,7 +2634,8 @@ hr{
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     text-align: left;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    flex-direction: column;
 }
 
 .value-icon {
@@ -2657,6 +2658,7 @@ hr{
 .value-item h3 {
     font-size: 1.3rem;
     margin-bottom: 10px;
+    margin-right: 15px;
     color: #0d2240;
 }
 
