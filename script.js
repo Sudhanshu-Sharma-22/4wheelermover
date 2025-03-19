@@ -792,3 +792,168 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Service URLs mapping
+    const serviceUrls = {
+      "Sports Car Transport Service in Delhi": "https://4wheelermover.com/sports-car-transportation/",
+      "Luxury Car Transport Service in Delhi": "https://4wheelermover.com/luxury-car-transportation/",
+      "Sedan Car Transport Service in Delhi": "https://4wheelermover.com/packers-and-movers/",
+      "SUVs Car Transport Service in Delhi": "https://4wheelermover.com/suv-car-transportation/",
+      "Damaged Car Transport Service in Delhi": "https://4wheelermover.com/damaged-car-transportation/",
+      "Old Car Transport Service in Delhi": "https://4wheelermover.com/old-car-transportation/",
+      "New Car Transport Service in Delhi": "https://4wheelermover.com/new-car-transportation/",
+      "Bike Transport Service in Delhi": "https://4wheelermover.com/bike-transportation/",
+      "Interstate Car Transport Services": "https://4wheelermover.com/packers-and-movers/",
+    }
+  
+    // Services Data with URLs
+    const services = [
+      {
+        title: "Sports Car Transport Service in Delhi",
+        description:
+          "Transporting high-end sports cars requires special attention, secure carriers, and expert handling. Our specialized car carrier in Delhi ensures that your sports car is transported safely without any damage. We use enclosed car carriers to provide added protection against external elements and road debris. Additionally, our trained professionals ensure secure strapping and handling techniques to prevent any movement during transit.",
+        url: "https://4wheelermover.com/sports-car-transportation/",
+      },
+      {
+        title: "Luxury Car Transport Service in Delhi",
+        description:
+          "Owning a luxury car means you need a trusted car movers in Delhi who can handle it with the care it deserves. Our enclosed carriers and expert logistics ensure that your luxury vehicle reaches its destination in perfect condition. Luxury vehicles require specialized handling, and our team is equipped with the latest technology to ensure smooth transportation, including hydraulic lifts, soft straps, and temperature-controlled carriers when needed.",
+        url: "https://4wheelermover.com/luxury-car-transportation/",
+      },
+      {
+        title: "Sedan Car Transport Service in Delhi",
+        description:
+          "Our sedan car transport service in Delhi provides a secure and economical way to transport your sedan to any location in India. Whether it's a compact sedan or a full-sized vehicle, we use advanced loading techniques and premium packing materials to prevent any damage.",
+        url: "https://4wheelermover.com/packers-and-movers/",
+      },
+      {
+        title: "SUVs Car Transport Service in Delhi",
+        description:
+          "We offer car shifting services in Delhi for SUVs of all sizes. Our specialized carriers ensure that large vehicles are securely transported without any risk of damage. SUVs have a higher weight and size, which require heavy-duty carriers equipped with robust securing mechanisms to avoid any displacement during transit.",
+        url: "https://4wheelermover.com/suv-car-transportation/",
+      },
+      {
+        title: "Damaged Car Transport Service in Delhi",
+        description:
+          "If your car has been involved in an accident and requires transport, we offer safe and affordable damaged car transport services in Delhi. We use flatbed trucks and tow trucks to safely transport damaged vehicles to repair centers, scrap yards, or any location of your choice.",
+        url: "https://4wheelermover.com/damaged-car-transportation/",
+      },
+      {
+        title: "Old Car Transport Service in Delhi",
+        description:
+          "Planning to move your old car? Our vehicle shifting company in Delhi provides reliable solutions for transporting used cars securely. Whether you are selling your old car to a buyer in another city or relocating it to a new destination, we ensure safe handling and timely delivery.",
+        url: "https://4wheelermover.com/old-car-transportation/",
+      },
+      {
+        title: "New Car Transport Service in Delhi",
+        description:
+          "We specialize in transporting brand-new vehicles for individuals and dealerships, ensuring timely and safe deliveries. Our auto shifting services in Delhi cater to automobile manufacturers, showrooms, and private owners looking to move their brand-new cars securely.",
+        url: "https://4wheelermover.com/new-car-transportation/",
+      },
+      {
+        title: "Bike Transport Service in Delhi",
+        description:
+          "Apart from cars, we also provide bike transport service in Delhi, ensuring secure and timely delivery of motorcycles. Our two-wheeler transport services include specialized bike carriers, padded restraints, and protective covers to prevent any scratches or damage.",
+        url: "https://4wheelermover.com/bike-transportation/",
+      },
+      {
+        title: "Interstate Car Transport Services",
+        description:
+          "We offer interstate car transport services for those looking to move their vehicles from Delhi to any other state in India. Our team ensures compliance with inter-state transport regulations and provides insurance coverage for added protection.",
+        url: "https://4wheelermover.com/packers-and-movers/",
+      },
+    ]
+  
+    // Clear existing service cards
+    const servicesGrid = document.querySelector(".services-grid")
+    if (servicesGrid) {
+      servicesGrid.innerHTML = ""
+  
+      // Dynamically populate services with clickable links
+      services.forEach((service) => {
+        const serviceCard = document.createElement("div")
+        serviceCard.className = "service-card"
+        serviceCard.setAttribute("data-aos", "fade-up")
+        serviceCard.style.cursor = "pointer" // Add pointer cursor to indicate clickable
+  
+        // Add click event to the entire card
+        serviceCard.addEventListener("click", () => {
+          window.location.href = service.url
+        })
+  
+        serviceCard.innerHTML = `
+          <h3>${service.title}</h3>
+          <p>${service.description}</p>
+          <div class="service-link">Read More <i class="fas fa-arrow-right"></i></div>
+        `
+  
+        servicesGrid.appendChild(serviceCard)
+      })
+    }
+  
+    // Add CSS for the service cards
+    const style = document.createElement("style")
+    style.textContent = `
+      .service-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+      
+      .service-link {
+        color: #ff6600;
+        font-weight: 600;
+        margin-top: 15px;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+      
+      .service-card:hover .service-link {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    `
+    document.head.appendChild(style)
+  
+    // Fix for FAQ functionality
+    const faqItems = document.querySelectorAll(".faq-item")
+  
+    faqItems.forEach((item) => {
+      const questionDiv = item.querySelector(".faq-question")
+      const answerDiv = item.querySelector(".faq-answer")
+      const toggleIcon = item.querySelector(".faq-toggle i")
+  
+      // Initialize all answers to be closed
+      answerDiv.style.maxHeight = "0"
+  
+      questionDiv.addEventListener("click", () => {
+        // Toggle active class
+        const isActive = item.classList.toggle("active")
+  
+        // Update icon
+        if (toggleIcon) {
+          toggleIcon.className = isActive ? "fas fa-minus" : "fas fa-plus"
+        }
+  
+        // Set max height based on active state
+        if (isActive) {
+          answerDiv.style.maxHeight = answerDiv.scrollHeight + "px"
+        } else {
+          answerDiv.style.maxHeight = "0"
+        }
+      })
+    })
+  })
+  
+  
