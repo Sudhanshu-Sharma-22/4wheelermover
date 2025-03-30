@@ -1826,6 +1826,13 @@ hr{
     border-radius: 8px;
 }
 
+@media (max-width: 991px) {
+    .inquiry-grid{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
 .feature-icon {
     background-color: #2a5298;
     width: 60px;
@@ -2971,208 +2978,98 @@ hr{
     margin: 0 auto;
 }
 
-.areas-wrapper {
+/* Areas Section  */
+.service-areas-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
-    margin-top: 50px;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
 }
 
-/* Map Styles */
-.areas-map {
-    flex: 0 0 40%;
+.service-area-box {
+    flex: 0 0 auto;
+    min-width: 120px;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    padding: 12px 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
-    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    height: 500px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
 }
 
-.delhi-map {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.service-area-box span {
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s ease;
 }
 
-.map-overlay {
+.service-area-box:before {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(13, 34, 64, 0.2);
-}
-
-.map-pin {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    z-index: 2;
+    background-color: #007bff;
+    transform: translateY(100%);
     transition: transform 0.3s ease;
+    z-index: 1;
 }
 
-.map-pin i {
-    color: #ff6600;
-    font-size: 30px;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+.service-area-box:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
-.map-pin:hover {
-    transform: translateY(-5px);
+.service-area-box:hover:before {
+    transform: translateY(0);
 }
 
-.pin-label {
-    position: absolute;
-    bottom: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #0d2240;
-    color: white;
-    padding: 3px 10px;
-    border-radius: 3px;
-    font-size: 12px;
-    white-space: nowrap;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
+.service-area-box:hover span {
+    color: #fff;
 }
 
-.map-pin:hover .pin-label {
-    opacity: 1;
+/* Staggered animation delay for a wave effect */
+.service-area-box:nth-child(3n+1):hover {
+    transition-delay: 0.05s;
 }
 
-/* Pin positions - adjust as needed for Delhi map */
-.pin-1 { top: 45%; left: 50%; } /* Central Delhi */
-.pin-2 { top: 25%; left: 45%; } /* North Delhi */
-.pin-3 { top: 65%; left: 50%; } /* South Delhi */
-.pin-4 { top: 45%; left: 70%; } /* East Delhi */
-.pin-5 { top: 45%; left: 30%; } /* West Delhi */
-.pin-6 { top: 55%; left: 80%; } /* Noida */
-.pin-7 { top: 70%; left: 25%; } /* Gurgaon */
-
-/* Areas List Styles */
-.areas-list {
-    flex: 0 0 55%;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    max-height: 500px;
-    overflow-y: auto;
+.service-area-box:nth-child(3n+2):hover {
+    transition-delay: 0.1s;
 }
 
-.area-region {
-    display: none;
+.service-area-box:nth-child(3n+3):hover {
+    transition-delay: 0.15s;
 }
 
-.area-region.active {
-    display: block;
-}
-
-.area-region h3 {
-    font-size: 24px;
-    color: #0d2240;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #ff6600;
-}
-
-.region-description {
-    margin-bottom: 20px;
-}
-
-.region-description p {
-    color: #666;
-    line-height: 1.6;
-}
-
-.areas-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.area-column {
-    flex: 0 0 calc(33.333% - 20px);
-}
-
-.area-column.full-width {
-    flex: 0 0 100%;
-}
-
-.area-column h4 {
-    font-size: 18px;
-    color: #0d2240;
-    margin-bottom: 15px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.area-column ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.area-column ul li {
-    margin-bottom: 10px;
-}
-
-.area-column ul li a {
-    color: #555;
-    text-decoration: none;
-    transition: color 0.3s ease, padding-left 0.3s ease;
-    display: block;
-    padding: 5px 0;
-    font-size: 15px;
-}
-
-.area-column ul li a:before {
-    content: "→";
-    margin-right: 8px;
-    color: #ff6600;
-}
-
-.area-column ul li a:hover {
-    color: #ff6600;
-    padding-left: 5px;
-}
-
-/* Responsive Styles */
-@media (max-width: 991px) {
-    .areas-wrapper {
-        flex-direction: column;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .service-area-box {
+        min-width: 100px;
+        padding: 10px;
     }
     
-    .areas-map, .areas-list {
-        flex: 0 0 100%;
-    }
-    
-    .areas-map {
-        height: 400px;
-    }
-    
-    .area-column {
-        flex: 0 0 calc(50% - 20px);
+    .service-area-box span {
+        font-size: 14px;
     }
 }
 
-@media (max-width: 767px) {
-    .section-header h2 {
-        font-size: 28px;
+@media (max-width: 480px) {
+    .service-areas-container {
+        gap: 10px;
     }
     
-    .section-subtitle {
-        font-size: 16px;
-    }
-    
-    .areas-map {
-        height: 300px;
-    }
-    
-    .area-column {
-        flex: 0 0 100%;
+    .service-area-box {
+        min-width: 90px;
+        padding: 8px;
     }
 }
 
@@ -3443,3 +3340,125 @@ hr{
   }
   
   
+
+  /* Enhanced service card styles with equal heights */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .service-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 370px; /* Fixed height for all cards */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e5e7eb;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    border-color: #ff6600;
+  }
+  
+  .service-header {
+    background: linear-gradient(135deg, #0d2240, #1a3a6c);
+    padding: 1.25rem;
+    width: 100%;
+  }
+  
+  .service-header h3 {
+    color: #fff;
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  .service-content {
+    display: flex;
+    flex: 1;
+    height: calc(100% - 60px); /* Adjust based on header height */
+  }
+  
+  .service-text {
+    flex: 1;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .service-text p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    /* Limit text to 4 lines with ellipsis */
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .service-image {
+    flex: 1;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .service-card:hover .service-image img {
+    transform: scale(1.05);
+  }
+  
+  .view-more-btn {
+    display: inline-block;
+    background-color: #ff6600;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: auto;
+    align-self: flex-start;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .view-more-btn:hover {
+    background-color: #e55c00;
+    transform: translateY(-2px);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .service-content {
+      flex-direction: column;
+    }
+  
+    .service-image {
+      height: 200px;
+    }
+  
+    .service-card {
+      height: auto;
+      min-height: 500px;
+    }
+  }
