@@ -158,63 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 
-  // Initialize Swiper
-  const swiper = new Swiper(".review-slider", {
-    slidesPerView: 1,
-    spaceBetween: 30,
-    loop: true,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    breakpoints: {
-      640: {
-        slidesPerView: 2,
-      },
-      1024: {
-        slidesPerView: 3,
-      },
-    },
-    lazy: {
-      loadPrevNext: true,
-    },
-  })
-
-  // Service Areas Map Interaction
-  const mapPins = document.querySelectorAll(".map-pin")
-  const areaRegions = document.querySelectorAll(".area-region")
-
-  mapPins.forEach((pin) => {
-    pin.addEventListener("click", function () {
-      const areaId = this.getAttribute("data-area").toLowerCase().replace(" ", "-")
-
-      // Hide all regions
-      areaRegions.forEach((region) => {
-        region.classList.remove("active")
-      })
-
-      // Show selected region
-      const selectedRegion = document.getElementById(areaId)
-      if (selectedRegion) {
-        selectedRegion.classList.add("active")
-      } else {
-        // If region not found, show all areas
-        document.getElementById("all-areas").classList.add("active")
-      }
-
-      // Highlight active pin
-      mapPins.forEach((p) => p.classList.remove("active-pin"))
-      this.classList.add("active-pin")
-    })
-  })
+  
 
   // Parallax effect for about header background
   const parallaxBg = document.querySelector(".parallax-bg")
@@ -247,7 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })
 
-  // Add CSS for the back to top button
+  //CSS for the back to top button
   const style = document.createElement("style")
   style.textContent = `
         .back-to-top {
@@ -401,5 +345,60 @@ document.querySelector('.quick-quote-form').addEventListener('submit', async (e)
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
         }
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.getElementById('testimonialsSlider');
+    const items = slider.querySelectorAll('.testimonial-item');
+    
+    // Clone the first few testimonials and append them to the end for seamless looping
+    function cloneItems() {
+        const cloneCount = Math.min(3, items.length);
+        
+        for (let i = 0; i < cloneCount; i++) {
+            const clone = items[i].cloneNode(true);
+            slider.appendChild(clone);
+        }
+    }
+    
+    cloneItems();
+    
+    // Calculate the total width of original items
+    function calculateWidth() {
+        const originalItemsCount = items.length;
+        const itemWidth = items[0].offsetWidth;
+        return itemWidth * originalItemsCount;
+    }
+    
+    // Set up the animation
+    function startAnimation() {
+        const totalWidth = calculateWidth();
+        slider.style.transition = 'transform 0s';
+        slider.style.transform = 'translateX(0)';
+        
+        setTimeout(() => {
+            slider.style.transition = `transform ${totalWidth / 50}s linear`;
+            slider.style.transform = `translateX(-${totalWidth}px)`;
+        }, 100);
+    }
+    
+    // Reset the animation when it completes
+    function handleTransitionEnd() {
+        slider.style.transition = 'transform 0s';
+        slider.style.transform = 'translateX(0)';
+        setTimeout(startAnimation, 100);
+    }
+    
+    slider.addEventListener('transitionend', handleTransitionEnd);
+    startAnimation();
+    
+    // View All Reviews button functionality
+    const viewAllButton = document.querySelector('.view-all-button');
+    viewAllButton.addEventListener('click', function() {
+        // Add your functionality here, such as redirecting to a reviews page
+        alert('Viewing all reviews');
+        // Example: window.location.href = '/all-reviews';
     });
 });
