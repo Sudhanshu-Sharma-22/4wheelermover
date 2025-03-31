@@ -109,6 +109,61 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 } */
 
+/* Services Section */
+/* .services {
+    padding: 4rem 0;
+    background-color: var(--white);
+    overflow: hidden;
+}
+
+.services-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+} */
+
+/* .service-card {
+    flex: 1 1 300px;
+    background-color: var(--gray-50);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    transition: transform 0.2s ease;
+    box-sizing: border-box;
+    min-width: 300px;
+} */
+
+/* .service-card:hover {
+    transform: translateY(-5px);
+} */
+
+/* Tablet responsiveness */
+/* @media (max-width: 921px) {
+    .service-card {
+        flex: 0 0 calc(50% - 1rem);
+        min-width: calc(50% - 1rem);
+        margin-bottom: 1rem;
+    }
+} */
+
+/* Mobile responsiveness */
+/* @media (max-width: 600px) {
+    .services h2 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    
+    .services-grid {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .service-card {
+        flex: 0 0 100%;
+        min-width: 100%;
+        margin-bottom: 1rem;
+    }
+} */
 
 
 /* Pricing Section */
@@ -286,7 +341,7 @@ th {
     color: var(--gray-700);
 }
 
-.container {
+.services .container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -3188,6 +3243,8 @@ hr{
   .service-card:hover::after {
     width: 100%;
   }
+  
+  
 
   /* Enhanced service card styles with equal heights */
 .services-grid {
