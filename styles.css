@@ -2322,10 +2322,10 @@ hr{
 
 /* Story Section */
 .about-story {
-    padding: 80px 0;
+    padding: 40px 0;
     background-color: #f9f9f9;
     border-radius: 10px;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
 }
 
 .story-content {
@@ -2416,9 +2416,8 @@ hr{
 
 /* Interactive Timeline */
 .journey-timeline {
-    padding: 80px 0;
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
 }
 
 .journey-timeline h2 {
@@ -2522,190 +2521,9 @@ hr{
     color: #666;
 }
 
-/* Stats Counter Section */
-.stats-section {
-    position: relative;
-    padding: 100px 0;
-    background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    margin-bottom: 80px;
-}
-
-.stats-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(13, 34, 64, 0.85);
-}
-
-.stats-container {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    max-width: 1000px;
-    margin: 0 auto;
-    z-index: 1;
-}
-
-.stat-item {
-    flex: 0 0 calc(25% - 30px);
-    text-align: center;
-    color: #fff;
-}
-
-.stat-icon {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    color: #ff6600;
-}
-
-.stat-counter {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.stat-label {
-    font-size: 1.1rem;
-    opacity: 0.9;
-}
-
-/* Team Section */
-.team-section {
-    padding: 80px 0;
-    text-align: center;
-    margin-bottom: 80px;
-}
-
-.team-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #0d2240;
-}
-
-.team-intro {
-    font-size: 1.2rem;
-    max-width: 800px;
-    margin: 0 auto 50px;
-    color: #555;
-}
-
-.team-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.team-card {
-    flex: 0 0 calc(25% - 30px);
-    height: 350px;
-    perspective: 1000px;
-    cursor: pointer;
-}
-
-.card-front, .card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    transition: transform 0.8s;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.card-front {
-    background-color: #fff;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px 20px;
-}
-
-.card-back {
-    background: linear-gradient(135deg, #0d2240, #1a3a6c);
-    color: #fff;
-    transform: rotateY(180deg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
-}
-
-.team-card:hover .card-front {
-    transform: rotateY(180deg);
-}
-
-.team-card:hover .card-back {
-    transform: rotateY(0);
-}
-
-.team-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-bottom: 20px;
-    border: 5px solid #f0f0f0;
-}
-
-.team-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.card-front h3 {
-    font-size: 1.3rem;
-    margin-bottom: 5px;
-    color: #0d2240;
-}
-
-.card-front p {
-    color: #ff6600;
-    font-weight: 500;
-}
-
-.card-back p {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.social-links {
-    display: flex;
-    gap: 15px;
-}
-
-.social-links a {
-    width: 40px;
-    height: 40px;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    transition: background-color 0.3s ease;
-}
-
-.social-links a:hover {
-    background-color: #ff6600;
-}
-
 /* Values Section */
 .values-section {
-    padding: 80px 0;
+    padding: 10px 0;
     background-color: #f9f9f9;
     margin-bottom: 80px;
     border-radius: 10px;
