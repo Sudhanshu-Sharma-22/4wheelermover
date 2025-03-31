@@ -1,3279 +1,930 @@
-:root {
-    --primary-color: #4d6436;
-    --primary-dark: #3d5128;
-    --primary-darker: #2e3e1e;
-    --orange: #ff7929;
-    --orange-dark: #e56a1a;
-    --white: #ffffff;
-    --gray-50: #f9fafb;
-    --gray-100: #f3f4f6;
-    --gray-200: #e5e7eb;
-    --gray-700: #374151;
-    --max-width: auto;
-    --border-radius: 8px;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    line-height: 1.6;
-    color: var(--gray-700);
-    background-color: var(--gray-50);
-    width: 100%;
-    overflow-x: hidden;
-}
-
-.container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
-/* Hero Section */
-.hero {
-    background: linear-gradient(to right, var(--primary-darker), var(--primary-color));
-    color: var(--white);
-    padding: 4rem 0;
-}
-
-.hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    max-width: 800px;
-}
-
-.hero p {
-    font-size: 1.125rem;
-    margin-bottom: 2rem;
-    max-width: 600px;
-}
-
-/* Buttons */
-.button-group {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--border-radius);
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    border: none;
-}
-
-.btn-primary {
-    background-color: var(--orange);
-    color: var(--white);
-}
-
-.btn-primary:hover {
-    background-color: var(--orange-dark);
-}
-
-.btn-outline {
-    background-color: transparent;
-    border: 2px solid var(--white);
-    color: var(--white);
-}
-
-.btn-outline:hover {
-    background-color: var(--white);
-    color: var(--primary-color);
-}
-
-/* Pricing Section */
-.pricing {
-    padding: 4rem 0;
-}
-
-.pricing-table {
-    overflow-x: auto;
-    margin-top: 2rem;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: var(--white);
-    border-radius: var(--border-radius);
-    overflow: hidden;
-}
-
-th, td {
-    padding: 1rem;
-    text-align: left;
-    border-bottom: 1px solid var(--gray-200);
-}
-
-th {
-    background-color: var(--primary-color);
-    color: var(--white);
-}
-
-
-/* CTA Section */
-.cta {
-    background: linear-gradient(to right, var(--orange), var(--orange-dark));
-    color: var(--white);
-    padding: 3rem 0;
-    text-align: center;
-}
-
-.cta h2 {
-    margin-bottom: 1rem;
-}
-
-.cta .button-group {
-    justify-content: center;
-    margin-top: 2rem;
-}
-
-
-@media (max-width: 768px) {
-    .about-content,
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .form-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-}
-
-/* Animations */
-[data-aos] {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-[data-aos].aos-animate {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Why Choose Us Section */
-.why-choose-us {
-    padding: 4rem 0;
-    background-color: var(--gray-50);
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.feature-card {
-    background-color: var(--white);
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.feature-card:hover {
-    transform: translateY(-5px);
-}
-
-.feature-card h3 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    font-size: 1.25rem;
-}
-
-
-.how-it-works {
-    padding: 4rem 0;
-    background-color: var(--white);
-}
-
-.steps-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.step-card {
-    background-color: var(--gray-50);
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    position: relative;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.step-card:hover {
-    transform: translateY(-5px);
-}
-
-.step-number {
-    position: absolute;
-    top: -15px;
-    left: -15px;
-    width: 40px;
-    height: 40px;
-    background-color: var(--primary-color);
-    color: var(--white);
-    border-radius: 0%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 1.25rem;
-}
-
-.step-card h3 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    font-size: 1.25rem;
-    padding-left: 1rem;
-}
-
-
-@media (max-width: 768px) {
-    .features-grid,
-    .steps-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .step-card,
-    .feature-card {
-        margin: 1rem;
-    }
-}
-
-.section-description {
-    text-align: center;
-    max-width: 800px;
-    margin: 1rem auto 2rem;
-    color: var(--gray-700);
-}
-
-.services .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
-h1, h2, h3, h4, h5, h6 {
-    text-align: center;
-}
-
-
-h1, h2 {
-    margin-bottom: 2rem;
-}
-
-h3, h4, h5, h6 {
-    margin-bottom: 1rem;
-}
-
-/* Center Form */
-.contact-form {
-    max-width: 600px;
-    margin: 2rem auto;
-    background-color: var(--white);
-    padding: 2.5rem;
-    border-radius: var(--border-radius);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.contact-form h3 {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    color: var(--primary-color);
-}
-
-
-.contact-grid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-}
-
-
-/* FAQ Section */
-/* .faq {
-    padding: 4rem 0;
-    background-color: var(--gray-100);
-}
-
-.faq-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.faq-item {
-    background-color: var(--white);
-    padding: 1.5rem;
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.faq-question {
-    background: none;
-    border: none;
-    padding: 1rem;
-    width: 100%;
-    text-align: left;
-    color: var(--primary-color);
-    margin-bottom: 0;
-    font-size: 1.125rem;
-    cursor: pointer;
-    border-bottom: 1px solid var(--gray-200);
-    transition: background-color 0.3s ease;
-}
-
-.faq-question:hover {
-    background-color: var(--gray-50);
-} */
-
-/* .faq-answer {
-    color: var(--gray-700);
-    padding: 1rem; */
-    /* max-height: 0; */
-    /* display: none;
-    overflow: hidden;
-    transition: display 0.3s ease-out;
-} */
-
-/* .faq-answer.active { */
-    /* max-height: 500px; */
-    /* display: block;
-}*/
-
-span{
-    color: #ff7929;
-} 
-
-
-/* New Faq */
-.faq_3 * {
-    font-family: Nunito, sans-serif;
-  }
-  
-  .faq_3 .container-block {
-    min-height: 75px;
-    height: fit-content;
-    width: auto;
-    display: block;
-    padding-top: 10px;
-    padding-right: 60px;
-    padding-bottom: 10px;
-    padding-left: 60px;
-  }
-  
-  .faq_3 .text-blk {
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 0px;
-    margin-left: 0px;
-    line-height: 25px;
-  }
-  
-  .faq_3 .responsive-container-block {
-    min-height: 75px;
-    height: fit-content;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 0px;
-    margin-right: auto;
-    margin-bottom: 0px;
-    margin-left: auto;
-    justify-content: flex-start;
-  }
-  
-  .faq_3 .answer-box {
-    max-height: 0px;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    transition-duration: 0.5s;
-    transition-timing-function: ease;
-    transition-delay: 0s;
-    transition-property: max-height;
-  }
-  
-  .faq_3 .faq.active .openimg {
-    transform: rotate(180deg);
-  }
-  
-  .faq_3 .openimg {
-    transition-duration: 0.3s;
-    transition-timing-function: ease-in;
-    transition-property: transform;
-  }
-  
-  .faq_3 .faq.active .answer-box {
-    max-height: 550px;
-  }
-  
-  .faq_3 input:focus {
-    outline-color: initial;
-    outline-style: none;
-    outline-width: initial;
-  }
-  
-  .faq_3 .responsive-container-block.container {
-    padding-top: 0px;
-    padding-right: 0px;
-    padding-bottom: 0px;
-    padding-left: 0px;
-  }
-  
-  .faq_3 .responsive-container-block.faqheading-bg {
-    background-color: #03a9f4;
-    height: 500px;
-    flex-direction: column;
-    text-align: center;
-    color: white;
-    align-items: center;
-  }
-  
-  .faq_3 .text-blk.faq-heading {
-    font-size: 48px;
-    line-height: 50px;
-    font-weight: 800;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 28px;
-    margin-left: 0px;
-  }
-  
-  .faq_3 .text-blk.faq-subhead {
-    max-width: 650px;
-    font-size: 18px;
-    line-height: 26px;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 28px;
-    margin-left: 0px;
-  }
-  
-  .faq_3 .input {
-    border-top-width: 0px;
-    border-right-width: 0px;
-    border-bottom-width: 0px;
-    border-left-width: 0px;
-    border-top-style: inset;
-    border-right-style: inset;
-    border-bottom-style: inset;
-    border-left-style: inset;
-    border-top-color: #767676;
-    border-right-color: #767676;
-    border-bottom-color: #767676;
-    border-left-color: #767676;
-    border-image-source: initial;
-    border-image-slice: initial;
-    border-image-width: initial;
-    border-image-outset: initial;
-    border-image-repeat: initial;
-    height: 45px;
-    width: 100%;
-    font-size: 15px;
-    padding-top: 1px;
-    padding-right: 24px;
-    padding-bottom: 1px;
-    padding-left: 24px;
-  }
-  
-  .faq_3 .input-box {
-    background-color: white;
-    max-width: 550px;
-    width: 100%;
-    height: 45px;
-    display: flex;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px;
-  }
-  
-  .faq_3 .search-btn {
-    height: 45px;
-    display: flex;
-    align-items: center;
-    padding-top: 0px;
-    padding-right: 10px;
-    padding-bottom: 0px;
-    padding-left: 10px;
-    cursor: pointer;
-  }
-  
-  .faq_3 .heading-content {
-    margin-top: 100px;
-    margin-right: 0px;
-    margin-bottom: 0px;
-    margin-left: 0px;
-  }
-  
-  .faq_3 .form-box {
-    float: none;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .faq_3 .responsive-container-block.dropdown-container {
-    background-color: white;
-    max-width: 850px;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 20px 7px;
-    height: auto;
-    flex-direction: column;
-    display: block;
-    margin-top: -120px;
-    margin-right: auto;
-    margin-bottom: 100px;
-    margin-left: auto;
-  }
-  
-  .faq_3 .search-svg {
-    width: 20px;
-    height: 20px;
-  }
-  
-  .faq_3 .responsive-container-block.dropdown-container-wrapper {
-    padding-top: 0px;
-    padding-right: 30px;
-    padding-bottom: 0px;
-    padding-left: 30px;
-  }
-  
-  .faq_3 .text-blk.faq-head2 {
-    text-align: center;
-    font-size: 42px;
-    line-height: 60px;
-    font-weight: 900;
-    margin-top: 60px;
-    margin-right: 0px;
-    margin-bottom: 50px;
-    margin-left: 0px;
-    padding-top: 0px;
-    padding-right: 20px;
-    padding-bottom: 0px;
-    padding-left: 20px;
-  }
-  
-  .faq_3 .faq {
-    display: block;
-    flex-direction: column;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: #aaaaaa;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 25px;
-    margin-left: 0px;
-  }
-  
-  .faq_3 .faq-question-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 20px;
-    margin-left: 0px;
-  }
-  
-  .faq_3 .text-blk.faq-questions {
-    color: #525252;
-    font-size: 22px;
-  }
-  
-  .faq_3 .text-blk.faq-answer {
-    padding-top: 0px;
-    padding-right: 0px;
-    padding-bottom: 0px;
-    padding-left: 20px;
-    color: #9c9c9c;
-    font-size: 19px;
-    line-height: 28px;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 20px;
-    margin-left: 0px;
-  }
-  
-  .faq_3 .faq-question-container:hover {
-    cursor: pointer;
-  }
-  
-  @media (max-width: 1024px) {
-    .faq_3 .text-blk.faq-answer {
-      font-size: 18px;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .faq_3 .responsive-container-block.faqheading-bg {
-      padding-top: 0px;
-      padding-right: 30px;
-      padding-bottom: 0px;
-      padding-left: 30px;
-    }
-  
-    .faq_3 .text-blk.faq-heading {
-      font-size: 40px;
-      line-height: 42px;
-      margin-top: 0px;
-      margin-right: 0px;
-      margin-bottom: 24px;
-      margin-left: 0px;
-    }
-  
-    .faq_3 .text-blk.faq-subhead {
-      margin-top: 0px;
-      margin-right: 0px;
-      margin-bottom: 24px;
-      margin-left: 0px;
-    }
-  
-    .faq_3 .text-blk.faq-head2 {
-      font-size: 38px;
-    }
-  
-    .faq_3 .text-blk.faq-questions {
-      font-size: 22px;
-    }
-  
-    .faq_3 .text-blk.faq-answer {
-      font-size: 18px;
-    }
-  
-    .faq_3 .text-blk.faq-questions {
-      font-size: 20px;
-    }
-  
-    .faq_3 .text-blk.faq-answer {
-      font-size: 16px;
-      line-height: 23px;
-    }
-  }
-  
-  @media (max-width: 500px) {
-    .faq_3 .responsive-container-block.dropdown-container-wrapper {
-      padding-top: 0px;
-      padding-right: 20px;
-      padding-bottom: 0px;
-      padding-left: 20px;
-    }
-  
-    .faq_3 .text-blk.faq-heading {
-      font-size: 38px;
-    }
-  
-    .faq_3 .heading-content {
-      margin-top: 60px;
-      margin-right: 0px;
-      margin-bottom: 0px;
-      margin-left: 0px;
-    }
-  
-    .faq_3 .text-blk.faq-subhead {
-      font-size: 18px;
-    }
-  
-    .faq_3 .text-blk.faq-head2 {
-      font-size: 30px;
-      line-height: 46px;
-      margin-top: 30px;
-      margin-right: 0px;
-      margin-bottom: 40px;
-      margin-left: 0px;
-    }
-  
-    .faq_3 .container-block {
-      padding-top: 10px;
-      padding-right: 15px;
-      padding-bottom: 10px;
-      padding-left: 15px;
-    }
-  
-    .faq_3 .faq-question-container {
-      margin-top: 0px;
-      margin-right: 0px;
-      margin-bottom: 15px;
-      margin-left: 0px;
-    }
-  
-    .faq_3 .text-blk.faq-questions {
-      font-size: 19px;
-    }
-  
-    .faq_3 .text-blk.faq-answer {
-      font-size: 16px;
-      line-height: 22px;
-      padding-top: 0px;
-      padding-right: 0px;
-      padding-bottom: 0px;
-      padding-left: 0px;
-    }
-  
-    .faq_3 .responsive-container-block.dropdown-container {
-      margin-top: -100px;
-      margin-right: 0px;
-      margin-bottom: 100px;
-      margin-left: 0px;
-    }
-  }
-
-  /* Res Faq */
-
-  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&amp;display=swap');
-
-*,
-*:before,
-*:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-}
-
-.wk-desk-1 {
-  width: 8.333333%;
-}
-
-.wk-desk-2 {
-  width: 16.666667%;
-}
-
-.wk-desk-3 {
-  width: 25%;
-}
-
-.wk-desk-4 {
-  width: 33.333333%;
-}
-
-.wk-desk-5 {
-  width: 41.666667%;
-}
-
-.wk-desk-6 {
-  width: 50%;
-}
-
-.wk-desk-7 {
-  width: 58.333333%;
-}
-
-.wk-desk-8 {
-  width: 66.666667%;
-}
-
-.wk-desk-9 {
-  width: 75%;
-}
-
-.wk-desk-10 {
-  width: 83.333333%;
-}
-
-.wk-desk-11 {
-  width: 91.666667%;
-}
-
-.wk-desk-12 {
-  width: 100%;
-}
-
-@media (max-width: 1024px) {
-  .wk-ipadp-1 {
-    width: 8.333333%;
-  }
-
-  .wk-ipadp-2 {
-    width: 16.666667%;
-  }
-
-  .wk-ipadp-3 {
-    width: 25%;
-  }
-
-  .wk-ipadp-4 {
-    width: 33.333333%;
-  }
-
-  .wk-ipadp-5 {
-    width: 41.666667%;
-  }
-
-  .wk-ipadp-6 {
-    width: 50%;
-  }
-
-  .wk-ipadp-7 {
-    width: 58.333333%;
-  }
-
-  .wk-ipadp-8 {
-    width: 66.666667%;
-  }
-
-  .wk-ipadp-9 {
-    width: 75%;
-  }
-
-  .wk-ipadp-10 {
-    width: 83.333333%;
-  }
-
-  .wk-ipadp-11 {
-    width: 91.666667%;
-  }
-
-  .wk-ipadp-12 {
-    width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  .wk-tab-1 {
-    width: 8.333333%;
-  }
-
-  .wk-tab-2 {
-    width: 16.666667%;
-  }
-
-  .wk-tab-3 {
-    width: 25%;
-  }
-
-  .wk-tab-4 {
-    width: 33.333333%;
-  }
-
-  .wk-tab-5 {
-    width: 41.666667%;
-  }
-
-  .wk-tab-6 {
-    width: 50%;
-  }
-
-  .wk-tab-7 {
-    width: 58.333333%;
-  }
-
-  .wk-tab-8 {
-    width: 66.666667%;
-  }
-
-  .wk-tab-9 {
-    width: 75%;
-  }
-
-  .wk-tab-10 {
-    width: 83.333333%;
-  }
-
-  .wk-tab-11 {
-    width: 91.666667%;
-  }
-
-  .wk-tab-12 {
-    width: 100%;
-  }
-}
-
-@media (max-width: 500px) {
-  .wk-mobile-1 {
-    width: 8.333333%;
-  }
-
-  .wk-mobile-2 {
-    width: 16.666667%;
-  }
-
-  .wk-mobile-3 {
-    width: 25%;
-  }
-
-  .wk-mobile-4 {
-    width: 33.333333%;
-  }
-
-  .wk-mobile-5 {
-    width: 41.666667%;
-  }
-
-  .wk-mobile-6 {
-    width: 50%;
-  }
-
-  .wk-mobile-7 {
-    width: 58.333333%;
-  }
-
-  .wk-mobile-8 {
-    width: 66.666667%;
-  }
-
-  .wk-mobile-9 {
-    width: 75%;
-  }
-
-  .wk-mobile-10 {
-    width: 83.333333%;
-  }
-
-  .wk-mobile-11 {
-    width: 91.666667%;
-  }
-
-  .wk-mobile-12 {
-    width: 100%;
-  }
-}
-
-
-/* Navbar */
-.header-scroll {
-    background-color: var(--white);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    transition: top 0.3s ease;
-    padding: 0.5rem 0;
-}
-
-.navbar {
-    padding: 0;
-}
-
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
-.navbar-brand {
-    font-size: 1rem;
-    font-weight: bold;
-    color: var(--primary-color);
-    text-decoration: none;
-    line-height: 1.5;
-}
-
-.navbar-nav {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-item {
-    margin-left: 1.5rem;
-}
-
-.nav-link {
-    text-decoration: none;
-    color: var(--gray-700);
-    position: relative;
-    padding-bottom: 2px;
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--orange);
-    transition: width 0.3s ease, left 0.3s ease;
-}
-
-.nav-link:hover {
-    color: var(--orange);
-}
-
-.nav-link:hover::after {
-    width: 100%;
-    left: 0;
-}
-
-.hero-container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 1rem;
-    display: flex;
-}
-
-/* Hamburger menu styles */
-.hamburger {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-    z-index: 101;
-}
-
-.hamburger-line {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px 0;
-    background-color: var(--primary-color);
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-/* Mobile styles */
-@media (max-width: 768px) {
-    .hamburger {
-        display: block;
-    }
-    
-    .navbar-nav {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 70%;
-        max-width: 300px;
-        height: 100vh;
-        background-color: var(--white);
-        flex-direction: column;
-        padding: 5rem 2rem 2rem;
-        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-        transition: right 0.3s ease;
-        z-index: 100;
-    }
-    
-    .navbar-nav.active {
-        right: 0;
-    }
-    
-    .nav-item {
-        margin: 1rem 0;
-    }
-    
-    /* Hamburger animation when active */
-    .hamburger.active .hamburger-line:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-    
-    .hamburger.active .hamburger-line:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .hamburger.active .hamburger-line:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-}
-
-/* Reviews Section */
-/* Testimonials section */
-.testimonials-section {
-    padding: 60px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.testimonials-heading {
-    text-align: center;
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 40px;
-    color: #2d3748;
-}
-
-/* Slider container */
-.testimonials-slider-container {
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 40px;
-}
-
-.testimonials-slider {
-    display: flex;
-    will-change: transform;
-    /* Initial position */
-    transform: translateX(0);
-}
-
-/* Individual testimonial item */
-.testimonial-item {
-    flex-shrink: 0;
-    width: 100%;
-    padding: 0 15px;
-    transition: transform 0.3s ease;
-}
-
-@media (min-width: 768px) {
-    .testimonial-item {
-        width: 50%;
-    }
-}
-
-@media (min-width: 1024px) {
-    .testimonial-item {
-        width: 33.333%;
-    }
-}
-
-.testimonial-card {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 24px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.testimonial-avatar {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: #4a6cf7;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 16px;
-}
-
-.testimonial-avatar-icon {
-    width: 30px;
-    height: 30px;
-    fill: white;
-}
-
-.testimonial-content {
-    font-style: italic;
-    color: #4a5568;
-    margin-bottom: 16px;
-    flex-grow: 1;
-}
-
-.testimonial-author {
-    font-weight: 600;
-    color: #2d3748;
-}
-
-.testimonial-role {
-    font-size: 14px;
-    color: #718096;
-}
-
-/* View all reviews button */
-.view-all-container {
-    text-align: center;
-}
-
-.view-all-button {
-    display: inline-block;
-    background-color: #4a6cf7;
-    color: white;
-    font-weight: 600;
-    padding: 12px 24px;
-    border-radius: 6px;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 16px;
-}
-
-.view-all-button:hover {
-    background-color: #3a56d4;
-}
-
-/* Why Contact Section */
-.why-contact {
-    padding: 4rem 0;
-    background: var(--white);
-    position: relative;
-}
-
-.why-contact::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: var(--gradient-primary);
-}
-
-.content-wrapper {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 2rem;
-    background: var(--gray-50);
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.lead-text {
-    font-size: 1.2rem;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-    line-height: 1.8;
-}
-
-.secondary-text {
-    color: var(--gray-700);
-    margin-bottom: 1rem;
-    line-height: 1.6;
-}
-
-/* Update Step Numbers */
-/* .step-card .step-number {
-    background: var(--gradient-primary);
-    color: var(--white);
-    padding: 0.5rem 1rem;
-    border-radius: var(--border-radius);
-    font-weight: 600;
-    font-size: 1rem;
-    position: absolute;
-    top: -15px;
-    left: -15px;
-    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
-} */
-
-
-:root {
-    --gradient-primary: linear-gradient(135deg, #667eea, #764ba2);
-    --white: #ffffff;
-    --border-radius: 0.5rem;
-  }
-  
-  .step-card {
-    position: relative;
-    background-color: #fff;
-    border-radius: var(--border-radius);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .step-card .step-number {
-      background: var(--gradient-primary);
-      color: var(--white);
-      padding: 0.5rem 1rem;
-      border-radius: var(--border-radius);
-      font-weight: 600;
-      font-size: 0.9rem;
-      position: absolute;
-      top: -15px;
-      left: -15px;
-      box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
-      min-width: 80px;
-      text-align: center;
-  }
-  
-  .step-card h3 {
-    margin-top: 0;
-  }
-  
-  .step-card p {
-    line-height: 1.6;
-  }
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .content-wrapper {
-        padding: 1.5rem;
-        margin: 0 1rem;
-    }
-    
-    .lead-text {
-        font-size: 1.1rem;
-    }
-    
-    .step-card .step-number {
-        font-size: 0.9rem;
-        padding: 0.4rem 0.8rem;
-    }
-}
-
-hr{
-    /* color: purple; */
-    border-top: 3px solid rebeccapurple;
-}
-
-
-.service-card h3 {
-    text-decoration: underline;
-    text-decoration-color: var(--orange);
-    text-decoration-thickness: 2px;
-    text-underline-offset: 5px;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-    font-size: 1.25rem;
-    font-weight: 600;
-}
-
-
-.why-contact h2 {
-    font-size: 2.5rem;
-    background: linear-gradient(45deg, var(--primary-color), var(--orange));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    position: relative;
-    display: inline-block;
-    padding: 0 1rem;
-    margin-bottom: 2rem;
-}
-
-.why-contact h2::before {
-    content: '';
-    position: absolute;
-    width: 60px;
-    height: 4px;
-    background: var(--orange);
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 2px;
-}
-
-.why-contact h2::after {
-    content: '';
-    position: absolute;
-    width: 100px;
-    height: 4px;
-    background: var(--primary-color);
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 2px;
-}
-
-
-.step-card {
-    position: relative;
-    background-color: #fff;
-    border-radius: var(--border-radius);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .step-card .step-number {
-      background: var(--gradient-primary);
-      color: var(--white);
-      padding: 0.5rem 1rem;
-      border-radius: var(--border-radius);
-      font-weight: 600;
-      font-size: 0.9rem;
-      position: absolute;
-      top: -15px;
-      left: -15px;
-      box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
-      min-width: 80px;
-      text-align: center;
-  }
-  
-  .step-card h3 {
-    margin-top: 0;
-  }
-  
-  .step-card p {
-    line-height: 1.6;
-  }
-  
-  .hero-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 2rem;
-  }
-  
-  .hero-container > div:first-child {
-      flex: 1;
-  }
-  
-  .hero-container > div:last-child {
-      flex: 0.8;
-  }
-  
-  .hero-container img {
-      border-radius: 20px;
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-      transition: transform 0.3s ease;
-  }
-  
-  .hero-container img:hover {
-      transform: translateY(-10px);
-  }
-  
-  .review-cta {
-      text-align: center;
-      margin-top: 2rem;
-  }
-  
-  .review-cta .btn {
-      font-size: 1.1rem;
-      padding: 1rem 2rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-  }
-  
-  .review-cta .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  @media (max-width: 768px) {
-      .hero-container {
-          flex-direction: column;
-      }
-      
-      .hero-container img {
-          width: 100%;
-          height: auto;
-      }
-  }
-
-  /* Pre-Hero Section */
-.pre-hero {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-    color: white;
-    padding: 4rem 0;
-}
-
-.pre-hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-
-.pre-hero p {
-    max-width: 900px;
-    margin: 0 auto 2rem;
-    text-align: center;
-    line-height: 1.6;
-}
-
-.discount-form-container {
-    background: white;
-    border-radius: 10px;
-    padding: 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.discount-form-container h2 {
-    color: #333;
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.discount-form-container h2 span {
-    color: #ff6b6b;
-}
-
-.quick-quote-form .form-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-}
-
-.quick-quote-form input,
-.quick-quote-form select {
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 100%;
-}
-
-.check-price-btn {
-    background: #ff6b6b;
-    color: white;
-    border: none;
-    padding: 0.75rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    grid-column: 3;
-}
-
-.check-price-btn:hover {
-    background: #ff5252;
-}
-
-/* About Section */
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-}
-
-.about-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-.section-label {
-    color: #2a5298;
-    font-weight: 600;
-    display: block;
-    margin-bottom: 1rem;
-}
-
-.about-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
-}
-
-.highlight {
-    color: #2a5298;
-}
-
-.cta-buttons {
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
-.phone-btn,
-.quote-btn {
-    padding: 1rem 2rem;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
-    transition: transform 0.3s;
-}
-
-.phone-btn {
-    background: #2a5298;
-    color: white;
-}
-
-.quote-btn {
-    background: #ff6b6b;
-    color: white;
-}
-
-.phone-btn:hover,
-.quote-btn:hover {
-    transform: translateY(-2px);
-}
-
-/* Contact Section */
-.contact-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 2rem;
-}
-
-.contact-form-container {
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.contact-form input,
-.contact-form select,
-.contact-form textarea {
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 100%;
-}
-
-.full-width {
-    width: 100%;
-    margin-bottom: 1rem;
-}
-
-.submit-btn {
-    background: #2a5298;
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 1.1rem;
-}
-
-.contact-info {
-    background: #2a5298;
-    color: white;
-    padding: 2rem;
-    border-radius: 10px;
-}
-
-.location-details {
-    margin-top: 0.05rem;
-}
-
-.location-details p {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-
-@media (max-width: 768px) {
-    .quick-quote-form .form-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-    
-    .check-price-btn {
-        grid-column: auto;
-    }
-}
-
-/* Updated About Section Styles */
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    padding: 4rem 0;
-}
-
-.section-label {
-    color: #666;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 1rem;
-}
-
-.split-heading {
-    font-size: 2.8rem;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-    font-weight: 800;
-}
-
-.highlight-text {
-    color: #2563eb;
-}
-
-.divider {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin: 2rem 0;
-}
-
-.divider-line {
-    flex: 1;
-    height: 2px;
-    background: #e5e7eb;
-}
-
-.divider-icon {
-    width: 30px;
-    height: 30px;
-}
-
-.description-text {
-    color: #666;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 2rem;
-}
-
-.cta-buttons {
-    display: flex;
-    gap: 1rem;
-}
-
-.cta-button {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: transform 0.3s ease;
-}
-
-.phone-btn {
-    background: #fff;
-    color: #2563eb;
-    border: 2px solid #2563eb;
-}
-
-.quote-btn {
-    background: #2563eb;
-    color: #fff;
-}
-
-/* Contact Banner Section */
-.contact-banner {
-    padding: 4rem 0;
-    background: #f8fafc;
-}
-
-.contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-}
-
-/* Inquiry Form Section */
-.contact {
-    position: relative;
-    padding: 4rem 0;
-}
-
-.inquiry-top {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 38.3%;
-    background: #fb8734ed;
-    z-index: 0;
-}
-
-.contact-grid {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 2rem;
-}
-
-.contact-form-container {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-.contact-form .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.contact-form input,
-.contact-form select,
-.contact-form textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #e5e7eb;
-    border-radius: 4px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-}
-
-.locations-details {
-    background: #1f2937;
-    color: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-}
-
-@media (max-width: 991px) {
-    .inquiry-grid{
-        display: flex;
-        flex-wrap: wrap;
-    }
-}
-
-.feature-icon {
-    background-color: #2a5298;
-    width: 60px;
-    height: 60px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-}
-
-.feature-icon i {
-    color: white;
-    font-size: 24px;
-}
-
-.feature-card {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-
-/* Footer Styles */
-.footer {
-    background-color: #0d2240;
-    color: #ffffff;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-}
-
-.container {
-    max-width: auto;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-/* Service Areas Section */
-.service-areas {
-    background-color: #f8f9fa;
-    padding: 40px 0;
-    color: #333;
-}
-
-.service-areas h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #0d2240;
-    font-size: 28px;
-    font-weight: 600;
-}
-
-.areas-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.area-column {
-    flex: 0 0 30%;
-    margin-bottom: 20px;
-}
-
-.area-column ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.area-column ul li {
-    margin-bottom: 10px;
-}
-
-.area-column ul li a {
-    color: #555;
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.3s ease;
-    display: block;
-    padding: 5px 0;
-}
-
-.area-column ul li a:hover {
-    color: #ff6600;
-}
-
-.area-column ul li a::before {
-    content: "→ ";
-    color: #ff6600;
-}
-
-/* Main Footer Content */
-.footer-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 60px 0 40px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.footer-column {
-    flex: 0 0 23%;
-    margin-bottom: 30px;
-}
-
-.footer-logo {
-    max-width: 180px;
-    margin-bottom: 20px;
-}
-
-.company-info p {
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.social-icons {
-    display: flex;
-    gap: 10px;
-}
-
-.social-icons a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    color: #ffffff;
-    transition: all 0.3s ease;
-}
-
-.social-icons a:hover {
-    background-color: #ff6600;
-    transform: translateY(-3px);
-}
-
-.footer-column h3 {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    position: relative;
-    padding-bottom: 10px;
-}
-
-.footer-column h3::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 40px;
-    height: 2px;
-    background-color: #ff6600;
-}
-
-.footer-column ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-column ul li {
-    margin-bottom: 12px;
-}
-
-.footer-column ul li a {
-    color: #cccccc;
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.3s ease;
-}
-
-.footer-column ul li a:hover {
-    color: #ff6600;
-    padding-left: 5px;
-}
-
-.contact-info ul li {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 15px;
-}
-
-.contact-info ul li i {
-    margin-right: 10px;
-    color: #ff6600;
-    font-size: 16px;
-    margin-top: 3px;
-}
-
-.contact-info ul li a {
-    color: #cccccc;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.contact-info ul li a:hover {
-    color: #ff6600;
-}
-
-.payment-methods {
-    margin-top: 20px;
-}
-
-.payment-methods img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Copyright Section */
-.copyright {
-    padding: 20px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.copyright p {
-    margin: 0;
-    font-size: 14px;
-    color: #cccccc;
-}
-
-.footer-links {
-    display: flex;
-    gap: 20px;
-}
-
-.footer-links a {
-    color: #cccccc;
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.3s ease;
-}
-
-.footer-links a:hover {
-    color: #ff6600;
-}
-
-/* Responsive Styles */
-@media (max-width: 991px) {
-    .footer-column {
-        flex: 0 0 48%;
-    }
-    
-    .area-column {
-        flex: 0 0 48%;
-    }
-}
-
-@media (max-width: 767px) {
-    .footer-column {
-        flex: 0 0 100%;
-    }
-    
-    .area-column {
-        flex: 0 0 100%;
-    }
-    
-    .copyright {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-    }
-    
-    .footer-links {
-        justify-content: center;
-    }
-}
-
-
-
-
-
-
-
-
-
-/* About Us Section Styles */
-.about-section {
-    font-family: 'Poppins', sans-serif;
-    color: #333;
-    overflow: hidden;
-}
-
-.about-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0;
-}
-
-/* Animated Header */
-.about-header {
-    position: relative;
-    height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    margin-bottom: 80px;
-}
-
-.parallax-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-    background-size: cover;
-    background-position: center;
-    filter: brightness(0.7);
-    transform: scale(1.1);
-    z-index: -1;
-}
-
-.reveal-text {
-    color: #fff;
-    font-size: 4rem;
-    font-weight: 800;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: revealText 1.5s forwards;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-    z-index: 2;
-}
-
-.reveal-text span {
-    display: block;
-    font-size: 2.5rem;
-    font-weight: 400;
-    margin-top: 10px;
-    color: #ff6600;
-}
-
-@keyframes revealText {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.header-cars {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 80px;
-}
-
-.car-silhouette {
-    position: absolute;
-    bottom: 0;
-    width: 120px;
-    height: 40px;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="white" d="M544 192h-16L419.22 56.02A64.025 64.025 0 0 0 369.24 32H155.33c-26.17 0-49.7 15.93-59.42 40.23L48 194.26C20.44 201.4 0 226.21 0 256v112c0 8.84 7.16 16 16 16h48c0 53.02 42.98 96 96 96s96-42.98 96-96h128c0 53.02 42.98 96 96 96s96-42.98 96-96h48c8.84 0 16-7.16 16-16v-80c0-53.02-42.98-96-96-96zM160 432c-26.47 0-48-21.53-48-48s21.53-48 48-48 48 21.53 48 48-21.53 48-48 48zm72-240H116.93l38.4-96H232v96zm48 0V96h89.24l76.8 96H280zm200 240c-26.47 0-48-21.53-48-48s21.53-48 48-48 48 21.53 48 48-21.53 48-48 48z"/></svg>');
-    background-repeat: no-repeat;
-    opacity: 0.7;
-}
-
-.car-1 {
-    left: 10%;
-    animation: driveCar 15s linear infinite;
-}
-
-.car-2 {
-    left: 40%;
-    animation: driveCar 20s linear infinite;
-    animation-delay: 2s;
-}
-
-.car-3 {
-    left: 70%;
-    animation: driveCar 18s linear infinite;
-    animation-delay: 5s;
-}
-
-@keyframes driveCar {
-    from {
-        transform: translateX(-200px);
-    }
-    to {
-        transform: translateX(calc(100vw + 200px));
-    }
-}
-
-/* Story Section */
-.about-story {
-    padding: 40px 0;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    margin-bottom: 40px;
-}
-
-.story-content {
-    max-width: 1000px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 0 20px;
-}
-
-.story-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #0d2240;
-}
-
-.highlight-year {
-    color: #ff6600;
-    font-weight: 700;
-    position: relative;
-}
-
-.highlight-year::after {
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: #ff6600;
-}
-
-.story-intro {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 0 auto 50px;
-    color: #555;
-}
-
-.story-cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-}
-
-.story-card {
-    flex: 0 0 calc(33.333% - 30px);
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.story-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-}
-
-.card-icon {
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(135deg, #0d2240, #1a3a6c);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-}
-
-.card-icon i {
-    font-size: 28px;
-    color: #fff;
-}
-
-.story-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: #0d2240;
-}
-
-.story-card p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #666;
-}
-
-/* Interactive Timeline */
-.journey-timeline {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.journey-timeline h2 {
-    font-size: 2.5rem;
-    margin-bottom: 50px;
-    color: #0d2240;
-}
-
-.timeline-container {
-    position: relative;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 40px 0;
-}
-
-.timeline-track {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 4px;
-    height: 100%;
-    background-color: #e0e0e0;
-    transform: translateX(-50%);
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 60px;
-    width: 50%;
-    padding: 0 40px;
-}
-
-.timeline-item:nth-child(odd) {
-    left: 0;
-    text-align: right;
-}
-
-.timeline-item:nth-child(even) {
-    left: 50%;
-    text-align: left;
-}
-
-.timeline-item::before {
-    content: attr(data-year);
-    position: absolute;
-    top: 0;
-    width: 80px;
-    height: 30px;
-    background-color: #ff6600;
-    color: #fff;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-}
-
-.timeline-item:nth-child(odd)::before {
-    right: -40px;
-}
-
-.timeline-item:nth-child(even)::before {
-    left: -40px;
-}
-
-.timeline-item::after {
-    content: "";
-    position: absolute;
-    top: 5px;
-    width: 20px;
-    height: 20px;
-    background-color: #0d2240;
-    border-radius: 50%;
-    border: 4px solid #fff;
-    box-shadow: 0 0 0 3px #ff6600;
-}
-
-.timeline-item:nth-child(odd)::after {
-    right: -52px;
-}
-
-.timeline-item:nth-child(even)::after {
-    left: -52px;
-}
-
-.timeline-content {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
-
-.timeline-content h3 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    color: #0d2240;
-}
-
-.timeline-content p {
-    font-size: 0.95rem;
-    color: #666;
-}
-
-/* Values Section */
-.values-section {
-    padding: 10px 0;
-    background-color: #f9f9f9;
-    margin-bottom: 80px;
-    border-radius: 10px;
-}
-
-.values-content {
-    max-width: 1000px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 0 20px;
-}
-
-.values-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 50px;
-    color: #0d2240;
-}
-
-.values-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-}
-
-.value-item {
-    flex: 0 0 calc(50% - 30px);
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    text-align: left;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-.value-icon {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, #0d2240, #1a3a6c);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 20px;
-    flex-shrink: 0;
-}
-
-.value-icon i {
-    font-size: 24px;
-    color: #fff;
-}
-
-.value-item h3 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    margin-right: 15px;
-    color: #0d2240;
-}
-
-.value-item p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #666;
-}
-
-/* Testimonial Spotlight */
-.testimonial-spotlight {
-    padding: 80px 0;
-    margin-bottom: 80px;
-}
-
-.spotlight-container {
-    max-width: 900px;
-    margin: 0 auto;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-
-.spotlight-content {
-    padding: 50px;
-    position: relative;
-}
-
-.quote-icon {
-    position: absolute;
-    top: 30px;
-    left: 30px;
-    font-size: 3rem;
-    color: rgba(13, 34, 64, 0.1);
-}
-
-.testimonial-slider {
-    position: relative;
-    height: 250px;
-    overflow: hidden;
-}
-
-.testimonial-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transform: translateX(50px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.testimonial-slide.active {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.testimonial-slide p {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: #555;
-    font-style: italic;
-    margin-bottom: 30px;
-}
-
-.client-info {
-    display: flex;
-    align-items: center;
-}
-
-.client-img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    margin-right: 15px;
-    object-fit: cover;
-}
-
-.client-details h4 {
-    font-size: 1.1rem;
-    margin-bottom: 5px;
-    color: #0d2240;
-}
-
-.client-details p {
-    font-size: 0.9rem;
-    margin: 0;
-    color: #ff6600;
-    font-style: normal;
-}
-
-.testimonial-controls {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-.control-prev, .control-next {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #f0f0f0;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.control-prev:hover, .control-next:hover {
-    background-color: #e0e0e0;
-}
-
-.control-indicators {
-    display: flex;
-    gap: 10px;
-    margin: 0 20px;
-}
-
-.indicator {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #e0e0e0;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.indicator.active {
-    background-color: #ff6600;
-}
-
-/* Call to Action */
-.about-cta {
-    padding: 80px 0;
-    background: linear-gradient(135deg, #0d2240, #1a3a6c);
-    border-radius: 10px;
-    margin-bottom: 80px;
-}
-
-.cta-content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    color: #fff;
-    padding: 0 20px;
-}
-
-.cta-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-.cta-content p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    opacity: 0.9;
-}
-
-.cta-button {
-    display: inline-block;
-    padding: 15px 40px;
-    background-color: #ff6600;
-    color: #fff;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.cta-button:hover {
-    background-color: #e55c00;
-    transform: translateY(-3px);
-}
-
-/* Responsive Styles */
-@media (max-width: 991px) {
-    .reveal-text {
-        font-size: 3rem;
-    }
-    
-    .reveal-text span {
-        font-size: 2rem;
-    }
-    
-    .story-card {
-        flex: 0 0 calc(50% - 30px);
-    }
-    
-    .stat-item {
-        flex: 0 0 calc(50% - 30px);
-        margin-bottom: 40px;
-    }
-    
-    .team-card {
-        flex: 0 0 calc(50% - 30px);
-    }
-}
-
-@media (max-width: 767px) {
-    .about-header {
-        height: 400px;
-    }
-    
-    .reveal-text {
-        font-size: 2.5rem;
-    }
-    
-    .reveal-text span {
-        font-size: 1.5rem;
-    }
-    
-    .story-card, .value-item, .team-card {
-        flex: 0 0 100%;
-    }
-    
-    .timeline-item {
-        width: 100%;
-        padding: 0 20px 0 70px;
-        text-align: left;
-    }
-    
-    .timeline-item:nth-child(odd), .timeline-item:nth-child(even) {
-        left: 0;
-    }
-    
-    .timeline-track {
-        left: 40px;
-    }
-    
-    .timeline-item::before {
-        left: 0 !important;
-        right: auto !important;
-    }
-    
-    .timeline-item::after {
-        left: 30px !important;
-        right: auto !important;
-    }
-    
-    .spotlight-content {
-        padding: 30px;
-    }
-}
-
-
-/* Service Areas Section Styles */
-.service-areas-section {
-    padding: 80px 0;
-    background-color: #f8f9fa;
-    font-family: 'Poppins', sans-serif;
-}
-
-.container {
-    max-width: auto;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.section-header h2 {
-    font-size: 36px;
-    color: #0d2240;
-    margin-bottom: 15px;
-    font-weight: 700;
-}
-
-.section-divider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.divider-line {
-    height: 2px;
-    width: 70px;
-    background-color: #ff6600;
-}
-
-.divider-icon {
-    margin: 0 15px;
-    width: 40px;
-    height: 40px;
-    background-color: #ff6600;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 18px;
-}
-
-.section-subtitle {
-    font-size: 18px;
-    color: #666;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-/* Areas Section  */
-.service-areas-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin: 30px 0;
-}
-
-.service-area-box {
-    flex: 0 0 auto;
-    min-width: 120px;
-    background-color: #f8f9fa;
-    border: 1px solid #e9ecef;
-    border-radius: 6px;
-    padding: 12px 15px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
-}
-
-.service-area-box span {
-    font-size: 15px;
-    font-weight: 500;
-    color: #333;
-    position: relative;
-    z-index: 2;
-    transition: color 0.3s ease;
-}
-
-.service-area-box:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #007bff;
-    transform: translateY(100%);
-    transition: transform 0.3s ease;
-    z-index: 1;
-}
-
-.service-area-box:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-}
-
-.service-area-box:hover:before {
-    transform: translateY(0);
-}
-
-.service-area-box:hover span {
-    color: #fff;
-}
-
-/* Staggered animation delay for a wave effect */
-.service-area-box:nth-child(3n+1):hover {
-    transition-delay: 0.05s;
-}
-
-.service-area-box:nth-child(3n+2):hover {
-    transition-delay: 0.1s;
-}
-
-.service-area-box:nth-child(3n+3):hover {
-    transition-delay: 0.15s;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .service-area-box {
-        min-width: 100px;
-        padding: 10px;
-    }
-    
-    .service-area-box span {
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 480px) {
-    .service-areas-container {
-        gap: 10px;
-    }
-    
-    .service-area-box {
-        min-width: 90px;
-        padding: 8px;
-    }
-}
-
-
-/* FAQ Section Styles */
-.faq-section {
-    padding: 80px 0;
-    background-color: #f8f9fa;
-    font-family: 'Poppins', sans-serif;
-}
-
-.faq-search-container {
-    max-width: 600px;
-    margin: 0 auto 40px;
-}
-
-.faq-search-box {
-    position: relative;
-    width: 100%;
-}
-
-.search-icon {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #0d2240;
-}
-
-#faqSearch {
-    width: 100%;
-    padding: 15px 15px 15px 45px;
-    border: 2px solid #e0e0e0;
-    border-radius: 50px;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
-
-#faqSearch:focus {
-    outline: none;
-    border-color: #ff6600;
-    box-shadow: 0 5px 20px rgba(255, 102, 0, 0.15);
-}
-
-.faq-container {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.faq-item {
-    background-color: #fff;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.faq-item:hover {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
-}
-
-.faq-question {
-    padding: 20px 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    position: relative;
-}
-
-.faq-question h3 {
-    font-size: 18px;
-    color: #0d2240;
-    margin: 0;
-    padding-right: 40px;
-    font-weight: 600;
-}
-
-.faq-toggle {
-    position: absolute;
-    right: 25px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ff6600;
-    transition: transform 0.3s ease;
-}
-
-.faq-item.active .faq-toggle {
-    transform: translateY(-50%) rotate(45deg);
-}
-
-.faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    padding: 0 25px;
-}
-
-.faq-item.active .faq-answer {
-    max-height: 500px;
-    padding-bottom: 20px;
-}
-
-.faq-answer p {
-    color: #666;
-    line-height: 1.6;
-    margin: 0;
-}
-
-.faq-cta {
-    text-align: center;
-    margin-top: 50px;
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-}
-
-.faq-cta p {
-    font-size: 18px;
-    color: #0d2240;
-    margin-bottom: 20px;
-}
-
-.faq-cta-button {
-    display: inline-block;
-    padding: 12px 30px;
-    background-color: #ff6600;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.faq-cta-button:hover {
-    background-color: #e55c00;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(255, 102, 0, 0.3);
-}
-
-/* Highlight search results */
-.highlight {
-    background-color: rgba(255, 102, 0, 0.2);
-    padding: 2px 0;
-}
-
-/* No results message */
-.no-results {
-    text-align: center;
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 8px;
-    margin-top: 20px;
-    display: none;
-}
-
-.no-results p {
-    color: #666;
-    font-size: 16px;
-    margin: 0;
-}
-
-.no-results i {
-    font-size: 40px;
-    color: #0d2240;
-    margin-bottom: 15px;
-    display: block;
-}
-
-@media (max-width: 767px) {
-    .faq-question h3 {
-        font-size: 16px;
-    }
-    
-    .faq-question {
-        padding: 15px 20px;
-    }
-    
-    .faq-toggle {
-        right: 20px;
-    }
-    
-    .faq-answer {
-        padding: 0 20px;
-    }
-}
-
-
-/* Enhanced service card styles */
-.service-card {
-    background-color: var(--gray-50);
-    padding: 1.5rem;
-    border-radius: var(--border-radius);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid #e5e7eb;
-  }
-  
-  .service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    border-color: #ff6600;
-  }
-  
-  .service-card h3 {
-    text-decoration: underline;
-    text-decoration-color: var(--orange);
-    text-decoration-thickness: 2px;
-    text-underline-offset: 5px;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-    font-size: 1.25rem;
-    font-weight: 600;
-    transition: color 0.3s ease;
-  }
-  
-  .service-card:hover h3 {
-    color: #ff6600;
-  }
-  
-  .service-card p {
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-  }
-  
-  .service-link {
-    color: #ff6600;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-top: 1rem;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-  
-  .service-card:hover .service-link {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  .service-card::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background-color: #ff6600;
-    transition: width 0.3s ease;
-  }
-  
-  .service-card:hover::after {
-    width: 100%;
-  }
-  
-  
-
-  /* Enhanced service card styles with equal heights */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-  
-  .service-card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    height: 370px; /* Fixed height for all cards */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid #e5e7eb;
-  }
-  
-  .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-    border-color: #ff6600;
-  }
-  
-  .service-header {
-    background: linear-gradient(135deg, #0d2240, #1a3a6c);
-    padding: 1.25rem;
-    width: 100%;
-  }
-  
-  .service-header h3 {
-    color: #fff;
-    margin: 0;
-    font-size: 1.25rem;
-    font-weight: 600;
-    text-align: center;
-  }
-  
-  .service-content {
-    display: flex;
-    flex: 1;
-    height: calc(100% - 60px); /* Adjust based on header height */
-  }
-  
-  .service-text {
-    flex: 1;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .service-text p {
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    /* Limit text to 4 lines with ellipsis */
-    display: -webkit-box;
-    -webkit-line-clamp: 6;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  
-  .service-image {
-    flex: 1;
-    background-color: #f5f5f5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-  
-  .service-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-  }
-  
-  .service-card:hover .service-image img {
-    transform: scale(1.05);
-  }
-  
-  .view-more-btn {
-    display: inline-block;
-    background-color: #ff6600;
-    color: #fff;
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 600;
-    text-align: center;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    margin-top: auto;
-    align-self: flex-start;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .view-more-btn:hover {
-    background-color: #e55c00;
-    transform: translateY(-2px);
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .service-content {
-      flex-direction: column;
-    }
-  
-    .service-image {
-      height: 200px;
-    }
-  
-    .service-card {
-      height: auto;
-      min-height: 200px;
-    }
-  }
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4 Wheeler Movers Car Transport - Delhi</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+
+<body>
+    <!-- Nav Bar -->
+
+    <header class="header-scroll">
+        <nav class="navbar">
+            <div class="container">
+                <a href="https://4wheelermover.com/" class="navbar-brand">
+                    <img src="images/4 wheeler logo.png" alt="logo" style="height: 3rem;">
+                </a>
+                <button class="hamburger" aria-label="Toggle menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a href="#hero" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#about-us" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="#pricing" class="nav-link">Pricing</a></li>
+                    <li class="nav-item"><a href="#faq" class="nav-link">FAQ</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="pre-hero">
+        <div class="container">
+            <h1>Best Car Transport Service in India</h1>
+            <p>Car transport in India, 4 Wheeler Movers Car Transport: Expert and very reliable car transport services in the market that help shift your vehicle without a hassle. We specialize to give you the best car shifting in India with utmost care. Door-to-door convenience is ensured through our comprehensive services on car packers and movers.</p>
+            
+            <div class="discount-form-container">
+                <h2>Discount Up To <span>25% Today Only.</span> Hurry Up!! Fill This Form</h2>
+                <form class="quick-quote-form">
+                    <div class="form-grid">
+                        <input type="text" placeholder="Name" required>
+                        <input type="tel" placeholder="Mobile No." required>
+                        <input type="email" placeholder="Email" required>
+                        <input type="text" placeholder="Shifting From" required>
+                        <input type="text" placeholder="Shifting To" required>
+                        <select required>
+                            <option value="">Select Service Type</option>
+                            <option value="car">Car Transport</option>
+                            <option value="bike">Bike Transport</option>
+                            <option value="luxury">Luxury Vehicle</option>
+                        </select>
+                        <button type="submit" class="check-price-btn">Check Price</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container hero-container">
+            <div>
+                <h1 data-aos="fade-up">Reliable Car Transport Services in Delhi - 4 Wheeler Movers Car Transport</h1>
+                <p data-aos="fade-up" data-aos-delay="100">
+                    Transporting a car from one location to another requires careful handling, proper logistics, and a trusted service provider. 4 Wheeler Movers Car Transport is a leading name in the industry, offering seamless and secure car transport in Delhi and across India. Whether you need to relocate a sedan, SUV, luxury car, or even a damaged vehicle, we have the right expertise and infrastructure to ensure a stress-free experience. Our team of experts ensures that each vehicle is transported with the utmost care, using advanced equipment and a well-maintained fleet of car carriers.
+                </p>
+                <div class="button-group" data-aos="fade-up" data-aos-delay="200">
+                    <button class="btn btn-primary">Get Free Quote</button>
+                    <button class="btn btn-outline">Contact Us</button>
+                </div>
+            </div>
+            <div>
+                <img src="images/car-transport.jpeg" alt="img" style="height: 400px">
+            </div>
+        </div>
+    </section>
+    <hr>
+
+    <!-- About Us Section -->
+    <section id="about-us" class="about-section">
+        <div class="about-container">
+            <!-- Animated Header -->
+            <div class="about-header">
+                <div class="parallax-bg"></div>
+                <h1 class="reveal-text">Our Journey <span>Through The Roads</span></h1>
+                <div class="header-cars">
+                    <div class="car-silhouette car-1"></div>
+                    <div class="car-silhouette car-2"></div>
+                    <div class="car-silhouette car-3"></div>
+                </div>
+            </div>
+            
+            <!-- Story Section -->
+            <div class="about-story">
+                <div class="story-content">
+                    <h2>Driving Excellence Since <span class="highlight-year">2010</span></h2>
+                    <p class="story-intro">What began as a small family business with just two carriers has evolved into Delhi's most trusted vehicle transport network.</p>
+                    
+                    <div class="story-cards">
+                        <div class="story-card" data-aos="fade-up">
+                            <div class="card-icon">
+                                <i class="fas fa-road"></i>
+                            </div>
+                            <h3>Our Beginning</h3>
+                            <p>Founded by automobile enthusiasts with a vision to revolutionize vehicle transportation in India, we started with just 2 carriers and a dream to connect cities through safe vehicle transport.</p>
+                        </div>
+                        
+                        <div class="story-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="card-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Our Growth</h3>
+                            <p>Through dedication to quality service and customer satisfaction, we expanded our fleet to 50+ specialized carriers, serving over 500 cities across India with a team of 200+ transport experts.</p>
+                        </div>
+                        
+                        <div class="story-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="card-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h3>Our Promise</h3>
+                            <p>Today, we continue our commitment to excellence, leveraging cutting-edge technology and trained professionals to ensure your vehicle reaches its destination safely, on time, every time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Interactive Timeline -->
+            <div class="journey-timeline">
+                <h2><u>Our Milestones</u></h2>
+                <div class="timeline-container">
+                    <div class="timeline-track"></div>
+                    
+                    <div class="timeline-item" data-year="2010">
+                        <div class="timeline-content">
+                            <h3>Founded in Delhi</h3>
+                            <p>Started operations with 2 carriers serving Delhi NCR</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-year="2013">
+                        <div class="timeline-content">
+                            <h3>Regional Expansion</h3>
+                            <p>Expanded to major North Indian cities with 15 carriers</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-year="2016">
+                        <div class="timeline-content">
+                            <h3>Pan-India Network</h3>
+                            <p>Established presence in all major Indian cities</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-year="2019">
+                        <div class="timeline-content">
+                            <h3>Technology Integration</h3>
+                            <p>Launched real-time tracking system for all shipments</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-year="2022">
+                        <div class="timeline-content">
+                            <h3>Premium Fleet</h3>
+                            <p>Introduced specialized carriers for luxury and sports cars</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-year="2023">
+                        <div class="timeline-content">
+                            <h3>Today</h3>
+                            <p>Delhi's most trusted vehicle transport service with 50+ carriers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Values Section -->
+            <div class="values-section">
+                <div class="values-content">
+                    <h2><u>Our Core Values</u></h2>
+                    <div class="values-container">
+                        <div class="value-item" data-aos="zoom-in">
+                            <div class="value-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Safety First</h3>
+                            <p>We prioritize the safety of your vehicle above all else, using secure equipment and trained professionals.</p>
+                        </div>
+                        
+                        <div class="value-item" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="value-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h3>Timeliness</h3>
+                            <p>We understand the importance of punctuality and strive to deliver your vehicle on or before the promised date.</p>
+                        </div>
+                        
+                        <div class="value-item" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="value-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h3>Transparency</h3>
+                            <p>We maintain clear communication and provide real-time updates throughout the transport process.</p>
+                        </div>
+                        
+                        <div class="value-item" data-aos="zoom-in" data-aos-delay="300">
+                            <div class="value-icon">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <h3>Excellence</h3>
+                            <p>We continuously improve our services to exceed customer expectations and set industry standards.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 data-aos="fade-up" style="color: darkblue;"><u>What Includes in Our <span>Vehicle Shifting Services</span> in Delhi</u></h2><br>
+            <div class="services-grid">
+                <!-- Service cards will be dynamically injected by js -->
+            </div>
+        </div>
+    </section>
+    <hr>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us">
+        <div class="container">
+            <h2 data-aos="fade-up" style="color: darkblue;"><u>Why We're <span>The Best Car Transport Company</span> in Delhi</u></h2>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up" style="display: flex; align-items: center;">
+                    <div class="feature-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3><u>Experienced and Trusted Car Movers in Delhi</u></h3>
+                    <p>With years of experience, we have become a trusted car shifting company in Delhi known for delivering reliable and professional services.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100" style="display: flex; align-items: center;">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3><u>Safe and Secure Car Transport Service in Delhi</u></h3>
+                    <p>We prioritize vehicle safety by using modern transport equipment, GPS tracking, and experienced drivers.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200" style="display: flex; align-items: center;">
+                    <div class="feature-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <h3><u>Affordable and Transparent Pricing</u></h3>
+                    <p>We provide competitive rates with no hidden charges, making us the best car movers in Delhi for budget-friendly transportation.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300" style="display: flex; align-items: center;">
+                    <div class="feature-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3><u>Door-to-Door Car Shifting Services in Delhi</u></h3>
+                    <p>Our door-to-door car shifting service in Delhi eliminates the hassle of dropping off or picking up your vehicle from terminals.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400" style="display: flex; align-items: center;">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3><u>Well-Maintained Car Carrier in Delhi</u></h3>
+                    <p>We use well-maintained car carriers in Delhi that are equipped with modern safety features to transport your vehicle securely.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500" style="display: flex; align-items: center;">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3><u>Timely Delivery with Real-Time Tracking</u></h3>
+                    <p>Timely delivery is one of our top priorities. With our real-time tracking system, you can monitor the movement of your vehicle throughout its journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 data-aos="fade-up" style="color: darkblue;"><u>How Our <span>Car Shifting Services</span> in Delhi Work</u></h2>
+            <div class="steps-grid">
+                <div class="step-card" data-aos="fade-up">
+                    <div class="step-number">Step_1</div>
+                    <h3><u>Get a Free Quote for Car Transport in Delhi</u></h3>
+                    <p>Contact us with your vehicle details and pick-up/drop-off locations to receive a free quote tailored to your requirements.</p>
+                </div>
+                <div class="step-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-number">Step_2</div>
+                    <h3><u>Schedule Your Car Pickup with Our Experts</u></h3>
+                    <p>Select a suitable pickup time, and our team will arrive at your location to collect your vehicle.</p>
+                </div>
+                <div class="step-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-number">Step_3</div>
+                    <h3><u>Safe Loading onto Our Car Carrier in Delhi</u></h3>
+                    <p>Our trained professionals carefully load your car onto a well-equipped car carrier in Delhi, using secure straps and padding to prevent movement.</p>
+                </div>
+                <div class="step-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-number">Step_4</div>
+                    <h3><u>Secure Transportation with GPS Tracking</u></h3>
+                    <p>Your vehicle is transported securely with real-time GPS tracking, allowing you to monitor its status at all times.</p>
+                </div>
+                <div class="step-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="step-number">Step_5</div>
+                    <h3><u>Timely Delivery to Your Desired Location</u></h3>
+                    <p>We ensure timely delivery of your vehicle at the designated destination, keeping you informed throughout the process.</p>
+                </div>
+                <div class="step-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="step-number">Step_6</div>
+                    <h3><u>Final Inspection and Hassle-Free Handover</u></h3>
+                    <p>Upon arrival, we conduct a thorough inspection before handing over your vehicle to ensure it arrives in perfect condition.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 data-aos="fade-up" style="color: darkblue;"><u>Cost of <span>Car Transport Services</span> in Delhi</u></h2>
+            <div class="pricing-table" data-aos="fade-up">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Distance</th>
+                            <th>Sedan Car Carrier Cost</th>
+                            <th>SUV Car Carrier Cost</th>
+                            <th>Luxury Car Carrier Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>500 KM Distance</td>
+                            <td>Rs.12,000 - 14,000</td>
+                            <td>Rs.14,000 - 16,000</td>
+                            <td>Rs.16,000 - 18,000</td>
+                        </tr>
+                        <tr>
+                            <td>1000 KM Distance</td>
+                            <td>Rs.15,000 - 18,000</td>
+                            <td>Rs.17,000 - 20,000</td>
+                            <td>Rs.19,000 - 22,000</td>
+                        </tr>
+                        <tr>
+                            <td>1500 KM Distance</td>
+                            <td>Rs.18,000 - 21,000</td>
+                            <td>Rs.20,000 - 23,000</td>
+                            <td>Rs.22,000 - 25,000</td>
+                        </tr>
+                        <tr>
+                            <td>2000 KM Distance</td>
+                            <td>Rs.21,000 - 23,000</td>
+                            <td>Rs.23,000 - 25,000</td>
+                            <td>Rs.25,000 - 27,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <hr>
+
+    <!-- Contact Us Section -->
+    <section class="contact-banner" id="contact">
+        <div class="container">
+            <h2 class="split-heading">
+                Contact Us for the 
+                <span class="highlight-text">Best Car Transport</span><br>
+                <span class="highlight-text">Service in Delhi</span>
+            </h2>
+            <div class="divider">
+                <span class="divider-line"></span>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-content">
+                    <p class="description-text">
+                        Looking for a professional and reliable car shifting company in Delhi? 4 Wheeler Movers Car Transport is here to provide safe, affordable, and efficient car transport services in Delhi. Our dedicated team ensures a smooth and hassle-free experience.
+                    </p>
+                    <p class="description-text">
+                        Whether you are relocating to a new city or need interstate car shifting, we provide safe and timely transport solutions tailored to your needs. Call us today to get a free quote and enjoy the service of the best car transport company in Delhi!
+                    </p>
+                    <p class="description-text">
+                        You may also visit our office or reach out via email for expert guidance on vehicle shifting services in Delhi. Let us make your car relocation stress-free and seamless!
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="tel:+919802504004" class="cta-button phone-btn">
+                            <span class="icon">📞</span>
+                            <span class="text" style="color: white;">(+91) 98025 04004</span>
+                        </a>
+                        <a href="#quote" class="cta-button quote-btn">
+                            <span class="icon">✉️</span>
+                            <span class="text" style="color: white;">Get A Quote</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-image">
+                    <img src="images/car-transport.jpeg" alt="Car Transport Service in Delhi" style="width: 100%">
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2 data-aos="fade-up">Ready to Transport Your Vehicle?</h2>
+            <p data-aos="fade-up">Contact us today for a free quote and experience the best car transport service in Delhi!</p>
+            <div class="button-group" data-aos="fade-up">
+                <button class="btn btn-white">Get Free Quote</button>
+                <button class="btn btn-outline-white">Call Us Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <div class="section-divider">
+                    <span class="divider-line"></span>
+                    <span class="divider-icon"><i class="fas fa-question-circle"></i></span>
+                    <span class="divider-line"></span>
+                </div>
+                <p class="section-subtitle">Find answers to common questions about our car transport services in Delhi</p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How can I book car transport services with 4 Wheeler Movers?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Booking with us is simple — you can fill out our online inquiry form, call our customer support, or visit our Delhi office for personalized assistance.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How long does it take to transport a car across India?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The delivery timeline depends on the distance and route. We strive to provide an estimated delivery time frame during the booking process.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Is my vehicle insured during transit?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we provide transit insurance to ensure your vehicle is fully protected throughout the journey.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What types of vehicles can you transport?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We specialize in transporting all types of vehicles, including hatchbacks, sedans, SUVs, luxury cars, and even two-wheelers.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What documents are required for car transportation?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You will need to provide a copy of your vehicle's RC (Registration Certificate), insurance papers, and a valid government-issued ID.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How is my car transported securely?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We use specially designed car carriers equipped with safety features like wheel locks, straps, and secure fastening systems.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can I track my vehicle during transit?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer real-time tracking services to keep you informed about your vehicle's location and estimated delivery time.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do I need to prepare my car before transportation?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we recommend cleaning your vehicle, removing personal belongings, checking for leaks, and ensuring the fuel tank is at a minimum level (usually a quarter tank).</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What factors affect car transportation costs?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The cost depends on factors like distance, vehicle size, carrier type (open or enclosed), and additional services such as doorstep delivery.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you provide doorstep pickup and delivery?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer convenient doorstep pickup and delivery services across India for your comfort and ease.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Are there any items I should avoid leaving in my car during transport?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, please remove all personal belongings, valuables, electronic devices, and important documents. Also, remove any custom accessories that can be detached.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do I pay for car transport services?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We accept various payment methods including online transfers, credit/debit cards, and cash. A deposit is typically required at booking, with the balance due upon delivery.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What happens if my car is damaged during transport?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>In the rare event of damage, our comprehensive transit insurance covers repairs. We conduct thorough inspections before and after transport to document the vehicle's condition.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can you transport non-operational vehicles?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we can transport non-operational vehicles, but please inform us in advance as special equipment may be required, which could affect pricing.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you offer express or expedited shipping?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer express shipping options for customers who need their vehicles delivered on priority. Additional charges apply for this premium service.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-cta">
+                <p>Still have questions? Contact our customer support team</p>
+                <a href="#contact" class="faq-cta-button">Contact Us</a>
+            </div>
+        </div>
+    </section>
+    <hr>
+
+    <!-- Reviews Section -->
+
+    <section class="testimonials-section">
+        <h2 class="testimonials-heading" style="color: #e56a1a;"><u>Client Testimonials</u></h2>
+        
+        <div class="testimonials-slider-container">
+            <div class="testimonials-slider" id="testimonialsSlider">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-item">
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">
+                            <svg class="testimonial-avatar-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <p class="testimonial-content">"Working with this team has transformed our online presence. Their attention to detail and creative solutions exceeded our expectations."</p>
+                        <h4 class="testimonial-author">Sarah Johnson</h4>
+                        <p class="testimonial-role">Marketing Director</p>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-item">
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">
+                            <svg class="testimonial-avatar-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <p class="testimonial-content">"The level of professionalism and expertise is outstanding. They delivered our project on time and the results have been incredible."</p>
+                        <h4 class="testimonial-author">Michael Chen</h4>
+                        <p class="testimonial-role">CEO, TechStart</p>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-item">
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">
+                            <svg class="testimonial-avatar-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <p class="testimonial-content">"I've worked with many agencies, but none have been as responsive and dedicated as this team. Highly recommended!"</p>
+                        <h4 class="testimonial-author">Emily Rodriguez</h4>
+                        <p class="testimonial-role">Product Manager</p>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 4 -->
+                <div class="testimonial-item">
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">
+                            <svg class="testimonial-avatar-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <p class="testimonial-content">"They took our vision and turned it into reality. The process was smooth and the end product is exactly what we needed."</p>
+                        <h4 class="testimonial-author">David Kim</h4>
+                        <p class="testimonial-role">Startup Founder</p>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 5 -->
+                <div class="testimonial-item">
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">
+                            <svg class="testimonial-avatar-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <p class="testimonial-content">"Our sales have increased by 40% since launching the new website. Their strategic approach made all the difference."</p>
+                        <h4 class="testimonial-author">Lisa Thompson</h4>
+                        <p class="testimonial-role">E-commerce Director</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- View All Reviews Button -->
+        <div class="view-all-container">
+            <button class="view-all-button">View All Reviews</button>
+        </div>
+    </section>
+
+    <hr>
+
+    <!-- Inquiry Form  -->
+    <section class="contact" id="contact">
+        <div class="inquiry-top"></div>
+        <div class="container">
+            <div class="contact-grid inquiry-grid">
+                <div class="contact-form-container">
+                    <h2><u>INQUIRE NOW</u></h2>
+                    <p>Please complete the form for further information on the services and prices. We are more than happy to assist you with your enquiry.</p>
+                    <form class="contact-form">
+                        <div class="form-row">
+                            <input type="text" placeholder="First Name" required>
+                            <input type="text" placeholder="Last Name" required>
+                        </div>
+                        <div class="form-row">
+                            <input type="tel" placeholder="Phone Number" required>
+                            <input type="email" placeholder="Enter Your Email" required>
+                        </div>
+                        <div class="form-row">
+                            <select required>
+                                <option value="">Vehicle Type</option>
+                                <option value="sedan">Sedan</option>
+                                <option value="suv">SUV</option>
+                                <option value="luxury">Luxury Car</option>
+                            </select>
+                            <input type="text" placeholder="Vehicle Model" required>
+                        </div>
+                        <textarea placeholder="Message" rows="5"></textarea>
+                        <button type="submit" class="submit-btn">Submit Inquiry</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h2><u>OUR LOCATIONS</u></h2>
+                    <div class="location-details">
+                        <h3>DELHI OFFICE</h3>
+                        <p>
+                            <i class="fas fa-map-marker-alt"></i>
+                            Shop No.4, Old Mini Market, Janpath Rd, Connaught Place, New Delhi - 110001
+                        </p>
+                        <p>
+                            <i class="fas fa-phone"></i>
+                            +91 98025 04004
+                        </p>
+                        <p>
+                            <i class="fas fa-envelope"></i>
+                            <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c6afa8a0a986f2b1aea3a3aaa3b4aba9b0a3b4e8a5a9ab">[email&#160;protected]</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <!-- Service Areas Section -->
+            <section class="service-areas-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Our Local Service Area's in Delhi</h2>
+                        <div class="section-divider">
+                            <span class="divider-line"></span>
+                            <span class="divider-icon"><i class="fas fa-map-marker-alt"></i></span>
+                            <span class="divider-line"></span>
+                        </div>
+                        <p class="section-subtitle">We provide reliable car transport services across all areas of Delhi NCR</p>
+                    </div>
+
+                    <!-- area  -->
+                    <div class="service-areas-container">
+                        <div class="service-area-box">
+                            <span>South Delhi</span>
+                        </div>
+                        
+                        <div class="service-area-box">
+                            <span>North Delhi</span>
+                        </div>
+                        
+                        <div class="service-area-box">
+                            <span>East Delhi</span>
+                        </div>
+                        
+                        <div class="service-area-box">
+                            <span>West Delhi</span>
+                        </div>
+                        
+                        <div class="service-area-box">
+                            <span>Central Delhi</span>
+                        </div>
+                        
+                        <div class="service-area-box">
+                            <span>Noida</span>
+                        </div>
+                        
+                        <div class="service-area-box">
+                            <span>Gurgaon</span>
+                        </div>
+                        
+                        <div class="service-area-box">
+                            <span>Faridabad</span>
+                        </div>
+                        
+                        <div class="service-area-box">
+                            <span>Ghaziabad</span>
+                        </div>
+                        
+                        <div class="service-area-box">
+                            <span>Dwarka</span>
+                        </div>
+                        
+                        <div class="service-area-box">
+                            <span>Vasant Kunj</span>
+                        </div>
+                        
+                        <div class="service-area-box">
+                            <span>Rohini</span>
+                        </div>
+                        
+                        <div class="service-area-box">
+                            <span>Mayur Vihar</span>
+                        </div>
+                        
+                        <div class="service-area-box">
+                            <span>Laxmi Nagar</span>
+                        </div>
+                        
+                        <div class="service-area-box">
+                            <span>Karol Bagh</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Main Footer Content -->
+            <div class="footer-content">
+                <div class="footer-column company-info">
+                    <img src="images/4 wheeler logo.png" alt="4 Wheeler Movers Logo" class="footer-logo" style="background-color: white;">
+                    <p>4 Wheeler Movers is a leading car transport company in Delhi, providing reliable and secure vehicle transportation services across India.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column quick-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Services</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column our-services">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="#">Car Transport Service</a></li>
+                        <li><a href="#">Bike Transport Service</a></li>
+                        <li><a href="#">Luxury Car Transport</a></li>
+                        <li><a href="#">Sports Car Transport</a></li>
+                        <li><a href="#">SUV Transport Service</a></li>
+                        <li><a href="#">Interstate Car Transport</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column contact-info">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i>Shop No.4, Old Mini Market, Janpath Rd, Janpath, Connaught Place, New Delhi, Delhi 110001</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+919876543210">+91 9876543210</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection#c6afa8a0a986a5a7b4aba9b0a3b4b5a2a3aaaeafe8a5a9ab"><span class="__cf_email__" data-cfemail="6b02050d042b080a1906041d0e19180f0e07030245080406">[email&#160;protected]</span></a></li>
+                    </ul>
+                    <div class="payment-methods">
+                        <img src="https://4wheelermover.com/wp-content/uploads/2023/05/payment-methods.png" alt="Payment Methods">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright Section -->
+            <div class="copyright">
+                <p>&copy; 2023 Car Transport Delhi. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const questionButton = item.querySelector('.faq-question');
+                const answerDiv = item.querySelector('.faq-answer');
+
+                questionButton.addEventListener('click', () => {
+                    answerDiv.classList.toggle('active');
+                });
+            });
+        });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('.header-scroll');
+            let lastScrollTop = 0;
+
+            window.addEventListener('scroll', function() {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                if (scrollTop > lastScrollTop) {
+                    header.style.top = '-90px';
+                } else {
+                    header.style.top = '0';
+                }
+
+                lastScrollTop = scrollTop;
+            });
+        });
+        
+        AOS.init();
+    </script>
+</body>
+</html>
