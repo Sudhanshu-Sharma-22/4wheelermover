@@ -3153,6 +3153,7 @@ hr{
     align-items: center;
     gap: 5px;
     margin-top: 1rem;
+    opacity: 0;
     transform: translateY(10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
@@ -3162,16 +3163,10 @@ hr{
     transform: translateY(0);
   }
 
-  @media (min-width: 768px){
-    .service-link , .service-card {
-        opacity: 0;
-    }
-  }
-
   @media (max-width: 768px) {
     .service-link , .service-card {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(10px);
         color: #ff6600;
     }
   }
