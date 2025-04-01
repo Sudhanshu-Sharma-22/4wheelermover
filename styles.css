@@ -1675,6 +1675,30 @@ hr{
     }
 }
 
+@media (max-width: 782px) {
+    .contact-image{
+        display: none !important;
+        visibility: hidden;
+        height: 0;
+        width: 0;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr !important;
+      }
+    
+    .cta-buttons {
+        /* flex-direction: column; */
+        gap: 0.8rem;
+    }
+    
+    .cta-button {
+        justify-content: center;
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
 /* Updated About Section Styles */
 .about-grid {
     display: grid;
@@ -3129,7 +3153,6 @@ hr{
     align-items: center;
     gap: 5px;
     margin-top: 1rem;
-    opacity: 0;
     transform: translateY(10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
@@ -3137,6 +3160,20 @@ hr{
   .service-card:hover .service-link {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  @media (min-width: 768px){
+    .service-link , .service-card {
+        opacity: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .service-link , .service-card {
+        opacity: 1;
+        transform: translateY(0);
+        color: #ff6600;
+    }
   }
   
   .service-card::after {
@@ -3171,7 +3208,7 @@ hr{
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    height: 370px; /* Fixed height for all cards */
+    height: 350px; /* Fixed height for all cards */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid #e5e7eb;
   }
@@ -3199,7 +3236,7 @@ hr{
   .service-content {
     display: flex;
     flex: 1;
-    height: calc(100% - 60px); /* Adjust based on header height */
+    height: calc(100% - 60px);
   }
   
   .service-text {
@@ -3214,7 +3251,6 @@ hr{
     color: #666;
     line-height: 1.6;
     margin-bottom: 1.5rem;
-    /* Limit text to 4 lines with ellipsis */
     display: -webkit-box;
     -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
