@@ -408,7 +408,7 @@
                     </div>
                 </div>
                 <div class="contact-image">
-                    <img src="images/car-transport.jpeg" alt="Car Transport Service in Delhi" style="width: 0">
+                    <img src="images/car-transport.jpeg" alt="Car Transport Service in Delhi" style="width: 100%">
                 </div>
             </div>
         </div>
@@ -693,12 +693,10 @@
     <!-- <hr> -->
         
     <!-- Inquiry Form  -->
-    <!-- Add EmailJS SDK to your head section -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
-    // Initialize EmailJS with your User ID
     (function() {
-        emailjs.init("S2C9mPvHb9G6XkauZ"); // Get this from EmailJS dashboard
+        emailjs.init("S2C9mPvHb9G6XkauZ");
     })();
 </script>
 
@@ -708,10 +706,8 @@
         <div class="contact-grid inquiry-grid">
             <div class="contact-form-container">
                 <h2><u>INQUIRE NOW</u></h2>
-                <p>Please complete the form for further information...</p>
-                <!-- Modified Form -->
+                <p>Please complete the form for further information on the services and prices. We are more than happy to assist you with your enquiry.</p>
                 <form class="contact-form" onsubmit="sendEmail(event); return false;" method="POST">
-                    <!-- Add name attributes to all form fields -->
                     <div class="form-row">
                         <input type="text" name="first_name" placeholder="First Name" required>
                         <input type="text" name="last_name" placeholder="Last Name" required>
@@ -733,7 +729,24 @@
                     <button type="submit" class="submit-btn">Submit Inquiry</button>
                 </form>
             </div>
-            <!-- ... rest of your section ... -->
+            <div class="contact-info">
+                <h2><u>OUR LOCATIONS</u></h2>
+                <div class="location-details">
+                    <h3>DELHI OFFICE</h3>
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i>
+                        Shop No.4, Old Mini Market, Janpath Rd, Connaught Place, New Delhi - 110001
+                    </p>
+                    <p>
+                        <i class="fas fa-phone"></i>
+                        +91 98025 04004
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope"></i>
+                        <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c6afa8a0a986f2b1aea3a3aaa3b4aba9b0a3b4e8a5a9ab">Info@4wheelermover.com</a>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
