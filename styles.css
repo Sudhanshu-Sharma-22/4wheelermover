@@ -1590,6 +1590,24 @@ hr{
 }
 
 /* Contact Section */
+
+.contact-phone{
+    color: white;
+    text-decoration: none;
+}
+
+.contact-phone:hover{
+    color: #e55c00;
+}
+
+.contact-email{
+    color: white;
+}
+
+.contact-email:hover{
+    color: #e55c00;
+}
+
 .contact-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
