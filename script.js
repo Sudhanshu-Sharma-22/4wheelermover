@@ -223,23 +223,6 @@ document.addEventListener("DOMContentLoaded", () => {
             background-color: #e55c00;
             transform: translateY(-3px);
         }
-        
-        .service-link {
-            color: #ff6600;
-            font-weight: 600;
-            margin-top: 15px;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-        
-        .service-card:hover .service-link {
-            opacity: 1;
-            transform: translateY(0);
-        }
     `
   document.head.appendChild(style)
 })
