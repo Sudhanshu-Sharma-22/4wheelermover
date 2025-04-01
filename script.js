@@ -90,18 +90,18 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Form submission handling
-  const contactForm = document.querySelector(".contact-form")
-  if (contactForm) {
-    contactForm.addEventListener("submit", (e) => {
-      e.preventDefault()
+//   const contactForm = document.querySelector(".contact-form")
+//   if (contactForm) {
+//     contactForm.addEventListener("submit", (e) => {
+//       e.preventDefault()
 
-      // Show success message
-      alert("Thank you for your inquiry. We will contact you shortly!")
+//       // Show success message
+//       alert("Thank you for your inquiry. We will contact you shortly!")
 
-      // Reset form
-      contactForm.reset()
-    })
-  }
+//       // Reset form
+//       contactForm.reset()
+//     })
+//   }
 
   // Smooth scroll for navigation
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -249,73 +249,73 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //connectiong front end to backend
 
-document.querySelector('.quick-quote-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
+// document.querySelector('.quick-quote-form').addEventListener('submit', async (e) => {
+//     e.preventDefault();
     
-    const formData = {
-      name: e.target.querySelector('input[type="text"]').value,
-      phone: e.target.querySelector('input[type="tel"]').value,
-      email: e.target.querySelector('input[type="email"]').value,
-      fromLocation: e.target.querySelectorAll('input[type="text"]')[3].value,
-      toLocation: e.target.querySelectorAll('input[type="text"]')[4].value,
-      serviceType: e.target.querySelector('select').value
-    };
+//     const formData = {
+//       name: e.target.querySelector('input[type="text"]').value,
+//       phone: e.target.querySelector('input[type="tel"]').value,
+//       email: e.target.querySelector('input[type="email"]').value,
+//       fromLocation: e.target.querySelectorAll('input[type="text"]')[3].value,
+//       toLocation: e.target.querySelectorAll('input[type="text"]')[4].value,
+//       serviceType: e.target.querySelector('select').value
+//     };
     
-    try {
-      const response = await fetch('http://localhost:5000/api/inquiry', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-      });
+//     try {
+//       const response = await fetch('http://localhost:5000/api/inquiry', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(formData)
+//       });
       
-      const data = await response.json();
-      if (data.success) {
-        alert('Thank you for your inquiry! We will contact you shortly.');
-        e.target.reset();
-      } else {
-        alert('There was an error submitting your form. Please try again.');
-      }
-    } catch (err) {
-      console.error('Error:', err);
-      alert('There was an error submitting your form. Please try again.');
-    }
-  });
+//       const data = await response.json();
+//       if (data.success) {
+//         alert('Thank you for your inquiry! We will contact you shortly.');
+//         e.target.reset();
+//       } else {
+//         alert('There was an error submitting your form. Please try again.');
+//       }
+//     } catch (err) {
+//       console.error('Error:', err);
+//       alert('There was an error submitting your form. Please try again.');
+//     }
+//   });
 
-  document.querySelector('.contact-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
+//   document.querySelector('.contact-form').addEventListener('submit', async (e) => {
+//     e.preventDefault();
     
-    const formData = {
-      name: `${e.target.querySelectorAll('input[type="text"]')[0].value} ${e.target.querySelectorAll('input[type="text"]')[1].value}`,
-      phone: e.target.querySelector('input[type="tel"]').value,
-      email: e.target.querySelector('input[type="email"]').value,
-      vehicleType: e.target.querySelector('select').value,
-      vehicleModel: e.target.querySelectorAll('input[type="text"]')[2].value,
-      message: e.target.querySelector('textarea').value
-    };
+//     const formData = {
+//       name: `${e.target.querySelectorAll('input[type="text"]')[0].value} ${e.target.querySelectorAll('input[type="text"]')[1].value}`,
+//       phone: e.target.querySelector('input[type="tel"]').value,
+//       email: e.target.querySelector('input[type="email"]').value,
+//       vehicleType: e.target.querySelector('select').value,
+//       vehicleModel: e.target.querySelectorAll('input[type="text"]')[2].value,
+//       message: e.target.querySelector('textarea').value
+//     };
     
-    try {
-      const response = await fetch('http://localhost:5000/api/inquiry', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-      });
+//     try {
+//       const response = await fetch('http://localhost:5000/api/inquiry', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(formData)
+//       });
       
-      const data = await response.json();
-      if (data.success) {
-        alert('Thank you for contacting us! We will get back to you soon.');
-        e.target.reset();
-      } else {
-        alert('There was an error submitting your form. Please try again.');
-      }
-    } catch (err) {
-      console.error('Error:', err);
-      alert('There was an error submitting your form. Please try again.');
-    }
-  });
+//       const data = await response.json();
+//       if (data.success) {
+//         alert('Thank you for contacting us! We will get back to you soon.');
+//         e.target.reset();
+//       } else {
+//         alert('There was an error submitting your form. Please try again.');
+//       }
+//     } catch (err) {
+//       console.error('Error:', err);
+//       alert('There was an error submitting your form. Please try again.');
+//     }
+//   });
 
   // Hamburger
   document.addEventListener('DOMContentLoaded', function() {
