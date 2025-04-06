@@ -2462,6 +2462,50 @@ hr{
     color: #666;
 }
 
+@media (max-width: 782px) {
+    .timeline-track {
+        left: 30px;
+        transform: none;
+    }
+
+    .timeline-item {
+        width: calc(100% - 60px);
+        padding-left: 60px;
+        padding-right: 20px;
+        left: 0;
+        text-align: left;
+        margin-left: 30px;
+    }
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        left: 0;
+        text-align: left;
+    }
+
+    .timeline-item::before {
+        left: -40px;
+        right: auto;
+    }
+
+    .timeline-item:nth-child(odd)::before,
+    .timeline-item:nth-child(even)::before {
+        left: -40px;
+        right: auto;
+    }
+
+    .timeline-item::after {
+        left: -52px;
+        right: auto;
+    }
+
+    .timeline-item:nth-child(odd)::after,
+    .timeline-item:nth-child(even)::after {
+        left: -42px;
+        right: auto;
+    }
+}
+
 /* Values Section */
 .values-section {
     padding: 10px 0;
@@ -2745,30 +2789,6 @@ hr{
     
     .story-card, .value-item, .team-card {
         flex: 0 0 100%;
-    }
-    
-    .timeline-item {
-        width: 100%;
-        padding: 0 20px 0 70px;
-        text-align: left;
-    }
-    
-    .timeline-item:nth-child(odd), .timeline-item:nth-child(even) {
-        left: 0;
-    }
-    
-    .timeline-track {
-        left: 40px;
-    }
-    
-    .timeline-item::before {
-        left: 0 !important;
-        right: auto !important;
-    }
-    
-    .timeline-item::after {
-        left: 30px !important;
-        right: auto !important;
     }
     
     .spotlight-content {
