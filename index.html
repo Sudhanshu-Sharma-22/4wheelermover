@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
 
 <body>
@@ -48,14 +49,14 @@
 
             <div class="discount-form-container">
                 <h2>Discount Up To <span>25% Today Only.</span> Hurry Up!! Fill This Form</h2>
-                <form class="quick-quote-form">
+                <form class="quick-quote-form" onsubmit="sendQuickQuote(event); return false;" method="POST">
                     <div class="form-grid">
-                        <input type="text" placeholder="Name" required>
-                        <input type="tel" placeholder="Mobile No." required>
-                        <input type="email" placeholder="Email" required>
-                        <input type="text" placeholder="Shifting From" required>
-                        <input type="text" placeholder="Shifting To" required>
-                        <select required>
+                        <input type="text" name="name" placeholder="Name" required>
+                        <input type="tel" name="mobile" placeholder="Mobile No." required>
+                        <input type="email" name="email" placeholder="Email" required>
+                        <input type="text" name="shifting_from" placeholder="Shifting From" required>
+                        <input type="text" name="shifting_to" placeholder="Shifting To" required>
+                        <select name="service_type" required>
                             <option value="">Select Service Type</option>
                             <option value="car">Car Transport</option>
                             <option value="bike">Bike Transport</option>
@@ -759,14 +760,6 @@
 
     <!-- <hr> -->
 
-    <!-- Inquiry Form  -->
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script>
-        (function () {
-            emailjs.init("S2C9mPvHb9G6XkauZ");
-        })();
-    </script>
-
     <section class="contact" id="contact">
         <div class="inquiry-top"></div>
         <div class="container">
@@ -818,26 +811,6 @@
             </div>
         </div>
     </section>
-
-    <script>
-        function sendEmail(e) {
-            e.preventDefault();
-
-            // Get the form element
-            const form = e.target;
-
-            // Send the email
-            emailjs.sendForm('service_y24j8ac', 'template_vllr36q', form)
-                .then(function (response) {
-                    console.log('SUCCESS!', response.status, response.text);
-                    alert('Your inquiry has been submitted successfully!');
-                    form.reset(); // Clear the form
-                }, function (error) {
-                    console.log('FAILED...', error);
-                    alert('Submission failed. Please try again or contact us directly.');
-                });
-        }
-    </script>
 
     <hr>
 
