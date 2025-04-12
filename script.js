@@ -325,8 +325,6 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     const slider = document.getElementById('testimonialsSlider');
     const items = slider.querySelectorAll('.testimonial-item');
-
-    // Clone the first few testimonials and append them to the end for seamless looping
     function cloneItems() {
         const cloneCount = Math.min(3, items.length);
 
@@ -337,15 +335,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     cloneItems();
-
-    // Calculate the total width of original items
     function calculateWidth() {
         const originalItemsCount = items.length;
         const itemWidth = items[0].offsetWidth;
         return itemWidth * originalItemsCount;
     }
-
-    // Set up the animation
     function startAnimation() {
         const totalWidth = calculateWidth();
         slider.style.transition = 'transform 0s';
@@ -356,8 +350,6 @@ document.addEventListener('DOMContentLoaded', function () {
             slider.style.transform = `translateX(-${totalWidth}px)`;
         }, 100);
     }
-
-    // Reset the animation when it completes
     function handleTransitionEnd() {
         slider.style.transition = 'transform 0s';
         slider.style.transform = 'translateX(0)';
@@ -366,13 +358,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     slider.addEventListener('transitionend', handleTransitionEnd);
     startAnimation();
-
-    // View All Reviews button functionality
     const viewAllButton = document.querySelector('.view-all-button');
     viewAllButton.addEventListener('click', function () {
-        // Add your functionality here, such as redirecting to a reviews page
         alert('Viewing all reviews');
-        // Example: window.location.href = '/all-reviews';
     });
 });
 
@@ -380,33 +368,257 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //getting email response
 
-(function () {
-    emailjs.init("S2C9mPvHb9G6XkauZ");
-})();
+// (function () {
+//     emailjs.init("S2C9mPvHb9G6XkauZ");
+// })();
 
 
 // For the inquiry form (inquiry form function)
-function sendEmail(e) {
-    e.preventDefault();
-    const form = e.target;
-    emailjs.sendForm('service_y24j8ac', 'template_vllr36q', form)
-        .then(function (response) {
-            alert('Your inquiry has been submitted successfully!');
-            form.reset();
-        }, function (error) {
-            alert('Submission failed. Please try again or contact us directly.');
-        });
-}
+// function sendEmail(e) {
+//     e.preventDefault();
+//     const form = e.target;
+//     emailjs.sendForm('service_y24j8ac', 'template_vllr36q', form)
+//         .then(function (response) {
+//             alert('Your inquiry has been submitted successfully!');
+//             form.reset();
+//         }, function (error) {
+//             alert('Submission failed. Please try again or contact us directly.');
+//         });
+// }
 
 // For the quick quote form (hero section form function)
-function sendQuickQuote(e) {
-    e.preventDefault();
-    const form = e.target;
-    emailjs.sendForm('service_y24j8ac', 'template_xz6oxpw', form)
-        .then(function (response) {
-            alert('Your quote request has been submitted! We\'ll contact you shortly.');
-            form.reset();
-        }, function (error) {
-            alert('Request failed. Please try again or call us directly.');
+// function sendQuickQuote(e) {
+//     e.preventDefault();
+//     const form = e.target;
+//     emailjs.sendForm('service_y24j8ac', 'template_xz6oxpw', form)
+//         .then(function (response) {
+//             alert('Your quote request has been submitted! We\'ll contact you shortly.');
+//             form.reset();
+//         }, function (error) {
+//             alert('Request failed. Please try again or call us directly.');
+//         });
+// }
+
+
+
+// using resend 
+
+// async function sendEmail(to, subject, html) {
+//     try {
+//       const { data, error } = await resend.emails.send({
+//         from: 'sudhanshu.sharma.work.22@gmail.com',
+//         to: to,
+//         subject: subject,
+//         html: html,
+//       });
+
+//       if (error) {
+//         console.error('Error sending email:', error);
+//         return { success: false, error: error };
+//       }
+
+//       console.log('Email sent successfully:', data);
+//       return { success: true, data: data };
+//     } catch (error) {
+//       console.error('Error during email send:', error);
+//       return { success: false, error: error };
+//     }
+//   }
+
+//backend
+//   async function sendEmail(event) {
+//     event.preventDefault();
+
+//     const form = event.target.closest("form");
+//     const formData = new FormData(form);
+
+//     const payload = {
+//         first_name: formData.get("first_name"),
+//         last_name: formData.get("last_name"),
+//         phone: formData.get("phone"),
+//         email: formData.get("email"),
+//         vehicle_type: formData.get("vehicle_type"),
+//         vehicle_model: formData.get("vehicle_model"),
+//         message: formData.get("message"),
+//     };
+
+//     try {
+//         const response = await fetch("", {
+//             method: "POST",
+//             headers: {
+//                 "Content-Type": "application/json",
+//             },
+//             body: JSON.stringify(payload),
+//         });
+
+//         const data = await response.json();
+//         alert("✅ Form submitted successfully!");
+//         form.reset();
+//     } catch (error) {
+//         alert("❌ Failed to send email.");
+//         console.error("Error:", error);
+//     }
+// }
+
+
+// async function sendEmail(event) {
+//     event.preventDefault();
+
+//     const form = event.target.closest("form");
+//     const formData = new FormData(form);
+
+//     try {
+//         const response = await fetch("https://infotomail.onrender.com/submit", {
+//             method: "POST",
+//             body: formData, // important: no headers needed for FormData
+//         });
+
+//         const result = await response.json();
+
+//         if (response.ok) {
+//             alert("✅ Form submitted successfully!");
+//             form.reset();
+//         } else {
+//             alert("❌ Submission failed: " + result.message);
+//         }
+//     } catch (error) {
+//         console.error("Submission error:", error);
+//         alert("❌ Something went wrong while submitting the form.");
+//     }
+// }
+
+
+// async function sendEmail(event) {
+//     event.preventDefault();
+
+//     const form = event.target.closest("form");
+//     const formData = new FormData(form);
+
+//     // Combine first + last name
+//     const fullName = formData.get("first_name") + " " + formData.get("last_name");
+//     formData.set("name", fullName); // required by FastAPI
+//     formData.delete("first_name");
+//     formData.delete("last_name");
+
+//     try {
+//         const response = await fetch("https://infotomail.onrender.com/submit", {
+//             method: "POST",
+//             body: formData
+//         });
+
+//         const result = await response.json();
+
+//         if (response.ok) {
+//             alert(":white_check_mark: Form submitted successfully!");
+//             form.reset();
+//         } else {
+//             alert(":x: Submission failed: " + result.message);
+//         }
+//     } catch (error) {
+//         console.error("Submission error:", error);
+//         alert(":x: Something went wrong while submitting the form.");
+//     }
+// }
+
+
+async function sendEmail(event) {
+    event.preventDefault();
+
+    const form = event.target.closest("form");
+    const formData = new FormData(form);
+
+    // Extract fields
+    const firstName = formData.get("first_name");
+    const lastName = formData.get("last_name");
+    const email = formData.get("email");
+    const phone = formData.get("phone");
+    const vehicleType = formData.get("vehicle_type");
+    const vehicleModel = formData.get("vehicle_model");
+    const userMessage = formData.get("message");
+
+    const fullName = `${firstName} ${lastName}`;
+
+    // Create a formatted message body
+    const combinedMessage = `
+Phone: ${phone}
+Vehicle Type: ${vehicleType}
+Vehicle Model: ${vehicleModel}
+
+Message:
+${userMessage}
+`;
+
+    // Prepare final data
+    const finalData = new FormData();
+    finalData.append("name", fullName);
+    finalData.append("email", email);
+    finalData.append("message", combinedMessage);
+
+    try {
+        const response = await fetch("https://infotomail.onrender.com/submit", {
+            method: "POST",
+            body: finalData
         });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            alert("✅ Form submitted successfully!");
+            form.reset();
+        } else {
+            alert("❌ Submission failed: " + result.message);
+        }
+    } catch (error) {
+        console.error("Submission error:", error);
+        alert("❌ Something went wrong while submitting the form.");
+    }
+}
+
+//hero form 
+
+async function sendQuickQuote(event) {
+    event.preventDefault();
+
+    const form = event.target.closest("form");
+    const formData = new FormData(form);
+
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const mobile = formData.get("mobile");
+    const shiftingFrom = formData.get("shifting_from");
+    const shiftingTo = formData.get("shifting_to");
+    const serviceType = formData.get("service_type");
+
+    // Combine the fields into a message (excluding name & email)
+    const message = `
+Mobile No.: ${mobile}
+Shifting From: ${shiftingFrom}
+Shifting To: ${shiftingTo}
+Service Type: ${serviceType}
+    `;
+
+    // Prepare payload for FastAPI
+    const finalData = new FormData();
+    finalData.append("name", name);
+    finalData.append("email", email);
+    finalData.append("message", message);
+
+    try {
+        const response = await fetch("https://infotomail.onrender.com/submit", {
+            method: "POST",
+            body: finalData
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            alert("✅ Quick quote submitted successfully!");
+            form.reset();
+        } else {
+            alert("❌ Submission failed: " + result.message);
+        }
+    } catch (error) {
+        console.error("Submission error:", error);
+        alert("❌ Something went wrong while submitting the quick quote.");
+    }
 }
