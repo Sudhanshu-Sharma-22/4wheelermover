@@ -11,12 +11,15 @@
     --gray-700: #374151;
     --max-width: auto;
     --border-radius: 8px;
+    --gradient-primary: linear-gradient(135deg, #667eea, #764ba2);
+    --border-radius: 0.5rem;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-align: justify;
 }
 
 body {
@@ -1276,11 +1279,6 @@ body {
 } */
 
 
-:root {
-    --gradient-primary: linear-gradient(135deg, #667eea, #764ba2);
-    --white: #ffffff;
-    --border-radius: 0.5rem;
-}
 
 .step-card {
     position: relative;
