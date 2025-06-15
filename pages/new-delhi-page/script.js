@@ -95,3 +95,48 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
   
+
+  async function sendQuickQuote(event) {
+    event.preventDefault();
+
+    const form = event.target.closest("form");
+    const formData = new FormData(form);
+
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const mobile = formData.get("mobile");
+    const userMessage = formData.get("message");
+
+    // Combine the fields into a message (excluding name & email)
+    const message = `
+Name : ${name}
+Email : ${email}
+Mobile No.: ${mobile}
+Message : ${userMessage}
+    `;
+
+    // Prepare payload for FastAPI
+    const finalData = new FormData();
+    finalData.append("name", name);
+    finalData.append("email", email);
+    finalData.append("message", message);
+
+    try {
+        const response = await fetch("https://infotomail.onrender.com/submit", {
+            method: "POST",
+            body: finalData
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            alert("✅ We Will Contact You Soon!");
+            form.reset();
+        } else {
+            alert("❌ Submission failed: " + result.message);
+        }
+    } catch (error) {
+        console.error("Submission error:", error);
+        alert("❌ Something went wrong while submitting the quote.");
+    }
+}
