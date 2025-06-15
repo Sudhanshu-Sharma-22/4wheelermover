@@ -192,23 +192,23 @@
         <section id="contact" class="contact animate-on-scroll">
             <div class="container">
                 <h2>Get in Touch</h2>
-                <form class="contact-form">
+                <form class="contact-form" onsubmit="sendQuickQuote(event); return false;" method="POST">
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" id="name" placeholder="Your name">
+                            <input type="text" id="name" name="name" placeholder="Your name">
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone</label>
-                            <input type="tel" id="phone" placeholder="Your phone number">
+                            <input type="tel" id="phone" name="mobile" placeholder="Your phone number">
                         </div>
                         <div class="form-group full-width">
                             <label for="email">Email</label>
-                            <input type="email" id="email" placeholder="Your email address">
+                            <input type="email" id="email" name="email" placeholder="Your email address">
                         </div>
                         <div class="form-group full-width">
                             <label for="message">Message</label>
-                            <textarea id="message" placeholder="Tell us about your car transport needs"></textarea>
+                            <textarea id="message" name="message" placeholder="Tell us about your car transport needs"></textarea>
                         </div>
                         <div class="form-group full-width text-center">
                             <button type="submit" class="button white-button">Submit Request</button>
